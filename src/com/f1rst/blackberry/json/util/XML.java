@@ -31,9 +31,9 @@ package com.f1rst.blackberry.json.util;
 
 import java.util.Enumeration;
 
-import com.esprinet.blackberry.json.JSONArray;
-import com.esprinet.blackberry.json.JSONException;
-import com.esprinet.blackberry.json.JSONObject;
+import com.f1rst.blackberry.json.JSONArray;
+import com.f1rst.blackberry.json.JSONException;
+import com.f1rst.blackberry.json.JSONObject;
 
 /**
  * This provides static methods to convert an XML text into a JSONObject, and to covert a JSONObject into an XML text.

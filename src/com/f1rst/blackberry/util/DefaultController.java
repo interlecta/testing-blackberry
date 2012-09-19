@@ -7,6 +7,11 @@ import java.util.TimerTask;
 
 import javax.microedition.io.ConnectionNotFoundException;
 
+import com.f1rst.blackberry.util.DefaultController;
+import com.f1rst.blackberry.util.Labels;
+import com.f1rst.blackberry.util.Model;
+import com.f1rst.blackberry.util.PropertyChangeEvent;
+//import com.f1rst.blackberry.util.TextUtils;
 import com.f1rst.blackberry.log.Logger;
 import com.f1rst.blackberry.net.RestThread;
 import com.f1rst.blackberry.restapi.F1rstApiClient;
@@ -73,14 +78,17 @@ public class DefaultController extends AbstractControllerImplementation implemen
 				}
 			}
 		};
-		
 		invokeLater(r);
 
 		new Timer().schedule(new TimerTask() {
 
 			public void run() {
+
+				// Logger.log("User id: " + Model.getModel().getUserId());
+				Logger.log("SO id: " + Model.getModel().getSettingOne());
+				Logger.log("AT: " + Model.getModel().getAccessToken());
 				
-				propertyChange(new PropertyChangeEvent(null, DefaultController.SHOW_LOGIN, this, this));
+				propertyChange(new PropertyChangeEvent(null, DefaultController.SHOW_LOGIN_VIEW, this, this));
 				
 			}
 		}, 200);
@@ -325,7 +333,8 @@ public class DefaultController extends AbstractControllerImplementation implemen
 		return defaultFontBold20;
 	}
 	
-	public final static String SHOW_LOGIN = "showLogin";
+	public final static String SHOW_LOGIN_VIEW = "showLoginView";
+	public final static String SHOW_MAIN_SCREEN = "showMainScreen";
 	public final static String SET_LOGIN_RESULT = "setLoginResult";
 	public static final String SET_STATUS_MESSAGE = "setStatusMessage";
 	
@@ -338,5 +347,33 @@ public class DefaultController extends AbstractControllerImplementation implemen
 	
 	public final static String SET_SETTING_ONE = "setSettingOne";
 	public final static String SET_ACCESS_TOKEN = "setAccessToken";
+	public static final String SHOW_MENU_VIEW = "showMenuView";
+	public static final String SHOW_SIGNUP_VIEW = "showSignUp";
+
+	public void showScreen(final String screen) {
+		Logger.log("show");
+
+		Runnable r = new Runnable() {
+
+			public void run() {
+				while (UiApplication.getUiApplication().getScreenCount() > 1) {
+					UiApplication.getUiApplication().popScreen(
+							UiApplication.getUiApplication().getActiveScreen());
+				}
+			}
+		};
+		
+		invokeLater(r);
+
+		new Timer().schedule(new TimerTask() {
+
+			public void run() {
+				
+				propertyChange(new PropertyChangeEvent(null, screen, this, this));
+				
+			}
+		}, 200);
+		
+	}
 
 }

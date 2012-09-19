@@ -3,6 +3,7 @@ package com.f1rst.blackberry.ui;
 import java.util.Timer;
 import java.util.TimerTask;
 
+
 import net.rim.device.api.system.Bitmap;
 import net.rim.device.api.system.Display;
 import net.rim.device.api.system.EncodedImage;

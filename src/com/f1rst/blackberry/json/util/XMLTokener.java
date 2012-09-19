@@ -29,8 +29,8 @@
  */
 package com.f1rst.blackberry.json.util;
 
-import com.esprinet.blackberry.json.JSONException;
-import com.esprinet.blackberry.json.JSONTokener;
+import com.f1rst.blackberry.json.JSONException;
+import com.f1rst.blackberry.json.JSONTokener;
 
 /**
  * The XMLTokener extends the JSONTokener to provide additional methods for the parsing of XML texts.

@@ -119,6 +119,14 @@ public class Settings implements net.rim.device.api.util.Persistable {
          }
          return SINGLETONINSTANCE;
     }
+    
+    public boolean isSaveCredentials() {
+        return saveCredentials;
+    }
+    
+    public void setSaveCredentials(boolean saveCredentials) {
+        this.saveCredentials = saveCredentials;
+    }
 
     public void commit() {
         PersistentObject persist = PersistentStore.getPersistentObject( MODELKEY );
