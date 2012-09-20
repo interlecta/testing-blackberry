@@ -7,6 +7,11 @@ import net.rim.device.api.system.Bitmap;
 import net.rim.device.api.system.EncodedImage;
 import net.rim.device.api.util.Persistable;
 
+/**
+ * ImageCache class, implementing persistable interface to store RawBitmap in the
+ * persitent store as byte array
+ * @author ivaylo
+ */
 public class ImageCache implements Persistable {
 
     static ImageCache single;

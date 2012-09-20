@@ -1,5 +1,9 @@
 package com.f1rst.blackberry.util;
 
+/**
+ *
+ * @author ivaylo
+ */
 public class PropertyChangeEvent {
 
     Object source;

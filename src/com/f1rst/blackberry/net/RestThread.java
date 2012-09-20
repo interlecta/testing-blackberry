@@ -1,5 +1,9 @@
 package com.f1rst.blackberry.net;
 
+/**
+ *
+ * @author ivaylo
+ */
 public class RestThread extends Thread {
 
     private /*static*/ boolean isWorking = true;

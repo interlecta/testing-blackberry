@@ -2,6 +2,10 @@ package com.f1rst.blackberry.util;
 
 import java.util.Vector;
 
+/**
+ *
+ * @author ivaylo
+ */
 public class PropertyChangeSupport {
 
     Vector listeners = new Vector();

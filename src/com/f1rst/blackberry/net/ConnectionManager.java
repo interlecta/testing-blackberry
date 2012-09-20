@@ -1,9 +1,13 @@
 package com.f1rst.blackberry.net;
 
-import com.f1rst.blackberry.util.Model;
-
 import net.rim.device.api.servicebook.ServiceBook;
 import net.rim.device.api.servicebook.ServiceRecord;
+
+import com.f1rst.blackberry.util.Model;
+
+/**
+ * @author ivaylo
+ */
 
 public class ConnectionManager {
 

@@ -20,7 +20,6 @@ import net.rim.device.api.io.transport.TransportInfo;
 import net.rim.device.api.system.RadioException;
 import net.rim.device.api.system.RadioInfo;
 
-
 /**
  * A class that will handle all network connections to the api
  * @author ivaylo

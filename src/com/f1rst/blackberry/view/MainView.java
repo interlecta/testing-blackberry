@@ -30,13 +30,13 @@ public class MainView extends ApplicationMainScreen implements AbstractViewPanel
 	
 	private void init() {
 		createFields();
-		updateTitle(Labels.LBL_TITLE_MAIN);
+		updateTitle("main view");
 	}
 
 	private void createFields() {
-		first = new ColoredLabelField(BasicTheme.FONT_COLOR_BLACK, Labels.LBL_FIRST, Field.FIELD_TOP);
-		signUp = new ButtonField(Labels.LBL_SIGN_UP, ButtonField.CONSUME_CLICK | Field.FIELD_LEFT);
-		login = new ButtonField(Labels.LBL_LOGIN, ButtonField.CONSUME_CLICK | Field.FIELD_RIGHT);
+		first = new ColoredLabelField(BasicTheme.FONT_COLOR_BLACK, "first", Field.FIELD_TOP);
+		signUp = new ButtonField("sign up", ButtonField.CONSUME_CLICK | Field.FIELD_LEFT);
+		login = new ButtonField("login", ButtonField.CONSUME_CLICK | Field.FIELD_RIGHT);
 		cont = new ButtonField(Labels.LBL_CONTINUE, ButtonField.CONSUME_CLICK | Field.FIELD_BOTTOM);
 		
 		signUp.setChangeListener(new FieldChangeListener() {
@@ -62,16 +62,16 @@ public class MainView extends ApplicationMainScreen implements AbstractViewPanel
 	}
 
 	protected void cont() {
-		controller.showScreen(DefaultController.SHOW_MENU_VIEW);
+//		controller.showScreen(DefaultController.SHOW_MENU);
 	}
 
 	protected void login() {
-		controller.showScreen(DefaultController.SHOW_LOGIN_VIEW);
+//		controller.showScreen(DefaultController.SHOW_LOGIN_VIEW);
 		
 	}
 
 	protected void signUp() {
-		controller.showScreen(DefaultController.SHOW_SIGNUP_VIEW);
+//		controller.showScreen(DefaultController.SHOW_SIGNUP_VIEW);
 		
 	}
 
@@ -82,7 +82,7 @@ public class MainView extends ApplicationMainScreen implements AbstractViewPanel
                 setStatusField(value);
             else
                 removeStatusField();
-        }else if (evt.getPropertyName().equals(controller.SHOW_MAIN_SCREEN)) {
+        }else if (evt.getPropertyName().equals(controller.SHOW_MENU)) {
         	Runnable r = new Runnable() {
                 public void run() {
                     init();

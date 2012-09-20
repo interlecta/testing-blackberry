@@ -4,6 +4,9 @@ import net.rim.device.api.ui.ContextMenu;
 import net.rim.device.api.ui.Graphics;
 import net.rim.device.api.ui.component.EditField;
 
+/**
+ * @author ivaylo
+ */
 public class ColoredEditField extends EditField {
 
     int fontColor;

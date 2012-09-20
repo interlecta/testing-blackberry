@@ -3,7 +3,6 @@ package com.f1rst.blackberry.ui;
 import java.util.Timer;
 import java.util.TimerTask;
 
-
 import net.rim.device.api.system.Bitmap;
 import net.rim.device.api.system.Display;
 import net.rim.device.api.system.EncodedImage;
@@ -18,6 +17,10 @@ import net.rim.device.api.ui.component.NullField;
 import net.rim.device.api.ui.container.HorizontalFieldManager;
 import net.rim.device.api.ui.decor.BackgroundFactory;
 
+/**
+ * Main screen of the application.
+ * @author ivaylo
+ */
 public class ApplicationMainScreen extends TransitionMainScreen {
 
     HorizontalFieldManager hStatus = new HorizontalFieldManager(Field.NON_FOCUSABLE);

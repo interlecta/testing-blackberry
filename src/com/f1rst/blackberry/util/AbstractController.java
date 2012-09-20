@@ -2,6 +2,11 @@ package com.f1rst.blackberry.util;
 
 import java.util.Vector;
 
+
+/**
+ *
+ * @author ivaylo
+ */
 public abstract class AbstractController implements PropertyChangeListener {
 
     private Vector registeredViews;
@@ -68,3 +73,4 @@ public abstract class AbstractController implements PropertyChangeListener {
     }
 
 }
+

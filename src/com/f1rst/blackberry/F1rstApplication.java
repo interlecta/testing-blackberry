@@ -1,17 +1,20 @@
 package com.f1rst.blackberry;
 
-import com.f1rst.blackberry.log.Logger;
-import com.f1rst.blackberry.util.DefaultController;
-import com.f1rst.blackberry.util.Model;
-import com.f1rst.blackberry.util.Settings;
-import com.f1rst.blackberry.view.LoginView;
-import com.f1rst.blackberry.view.MainView;
-import com.f1rst.blackberry.view.MyScreen;
-
 import net.rim.device.api.system.Bitmap;
 import net.rim.device.api.system.DeviceInfo;
 import net.rim.device.api.system.Display;
 import net.rim.device.api.ui.UiApplication;
+
+import com.f1rst.blackberry.log.Logger;
+import com.f1rst.blackberry.ui.BasicTheme;
+import com.f1rst.blackberry.util.DefaultController;
+import com.f1rst.blackberry.util.Model;
+import com.f1rst.blackberry.util.Settings;
+import com.f1rst.blackberry.view.GlobalStatusScreen;
+import com.f1rst.blackberry.view.LoginView;
+import com.f1rst.blackberry.view.MenuScreen;
+import com.f1rst.blackberry.view.ScreenViewController;
+import com.f1rst.blackberry.view.StatusView2;
 
 public class F1rstApplication extends UiApplication {
 
@@ -21,24 +24,20 @@ public class F1rstApplication extends UiApplication {
     public static void main(String[] args) {
 
 //        if ( args != null && args.length > 0  && args[0].equals("gui") ) {
-    	F1rstApplication theApp = new F1rstApplication();
+            F1rstApplication theApp = new F1rstApplication();
             theApp.enterEventDispatcher();
-//        } else {
-//            b.enterEventDispatcher();
-//        }
     }
     
     static DefaultController controller;
-    
-//    private SplashScreen splashScreen;
 
-    public F1rstApplication() {    
+    public F1rstApplication() {
 
-        new Thread(new Runnable() {
-            public void run(){
-                createApplicationComponents();
-            }
-        }).start();
+//        new Thread(new Runnable() {
+//            public void run(){
+//                createApplicationComponents();
+    	pushScreen(new LoginView());
+//            }
+//        }).start();
     }
 
     public static boolean isSimulator() {
@@ -46,7 +45,7 @@ public class F1rstApplication extends UiApplication {
     }
 
     public static void setController(DefaultController controller) {
-    	F1rstApplication.controller = controller;
+        F1rstApplication.controller = controller;
     }
 
     public static DefaultController getController() {
@@ -67,15 +66,23 @@ public class F1rstApplication extends UiApplication {
 
                 public void run() {
                 	
-                	MainView mv = new MainView(controller);
+                	StatusView2 sv2 = new StatusView2(controller);
                 	
                     LoginView loginView = new LoginView(controller);
+                    ScreenViewController svc = new ScreenViewController(controller);
+                    
+                    GlobalStatusScreen sssv = new GlobalStatusScreen(controller);
                     
                     
-                    controller.addView(mv);
+                    controller.addView(sv2);
                     
                     controller.addView(loginView);
+                    controller.addView(svc);
+                                       
+                    controller.addView(sssv);
                     //controller.addView(related_pdv);
+                    
+                    controller.addView(MenuScreen.getMenuScreen(controller));
                     
                     controller.addModel(model);
 

@@ -2,6 +2,10 @@ package com.f1rst.blackberry.log;
 
 import net.rim.device.api.system.EventLogger;
 
+/**
+ * A class for debugging.
+ * @author ivaylo
+ */
 public class Logger {
 
     private static StringBuffer debugBuffer = new StringBuffer(5000);

@@ -1,5 +1,18 @@
 package com.f1rst.blackberry.view;
 
+import com.f1rst.blackberry.F1rstApplication;
+import com.f1rst.blackberry.log.Logger;
+import com.f1rst.blackberry.ui.ApplicationMainScreen;
+import com.f1rst.blackberry.ui.BasicTheme;
+import com.f1rst.blackberry.ui.SpacerField;
+import com.f1rst.blackberry.ui.SpacerManager;
+import com.f1rst.blackberry.util.AbstractViewPanel;
+import com.f1rst.blackberry.util.DefaultController;
+import com.f1rst.blackberry.util.Labels;
+import com.f1rst.blackberry.util.Model;
+import com.f1rst.blackberry.util.PropertyChangeEvent;
+import com.f1rst.blackberry.util.Settings;
+
 import net.rim.device.api.system.Bitmap;
 import net.rim.device.api.ui.Field;
 import net.rim.device.api.ui.FieldChangeListener;
@@ -22,29 +35,27 @@ import net.rim.device.api.ui.decor.BackgroundFactory;
 import net.rim.device.api.ui.decor.Border;
 import net.rim.device.api.ui.decor.BorderFactory;
 
-import com.f1rst.blackberry.F1rstApplication;
-import com.f1rst.blackberry.log.Logger;
-import com.f1rst.blackberry.ui.ApplicationMainScreen;
-import com.f1rst.blackberry.ui.BasicTheme;
-import com.f1rst.blackberry.ui.SpacerField;
-import com.f1rst.blackberry.ui.SpacerManager;
-import com.f1rst.blackberry.util.*;
-
+/**
+ * sign in screen
+ *
+ * @author ivaylo
+ */
 public class LoginView extends ApplicationMainScreen implements AbstractViewPanel {
-	private EmailAddressEditField userName;
+
+
+    private EmailAddressEditField userName;
 
     private PasswordEditField password;
     
     private ButtonField login;
 
     private CheckboxField save;
-    
-    private ObjectChoiceField language;
 
 
     private DefaultController controller;      
 
     public LoginView() {
+    	updateTitle("login");
     }
 
     public LoginView(DefaultController controller) {
@@ -68,10 +79,10 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
         getMainManager().setBackground(
                 BackgroundFactory.createSolidBackground(0xc7d5f5));
 
-        updateTitle(Model.getVERSION());
+        updateTitle("login");
 
 
-        login = new ButtonField(Labels.LBL_SIGN_UP, ButtonField.CONSUME_CLICK | Field.FIELD_HCENTER);
+        login = new ButtonField(Labels.LBL_SIGN_IN, ButtonField.CONSUME_CLICK | Field.FIELD_HCENTER);
 
         login.setChangeListener(new FieldChangeListener() {
             public void fieldChanged(Field field, int context) {
@@ -85,7 +96,7 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
     private void prepareSigninScreen() {
         Logger.log("prepare sign in screen");
         
-        updateTitle(Labels.LBL_LOGIN + "(" + Model.getVERSION()+")");        
+        updateTitle(Labels.LBL_SIGN_IN + "(" + Model.getVERSION()+")");        
         
         if(F1rstApplication.W == 320) {
         	add(new SpacerField(20, 10));           											  
@@ -97,8 +108,6 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
 
             lsm.add(new SpacerField(20, 50));
             rsm.add(new SpacerField(20, 50));
-
-            man.add(language);
             man.add(userName);
             man.add(password);
             
@@ -118,8 +127,6 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
             SpacerManager rsm = new SpacerManager(100, 100, false);
             lsm.add(new SpacerField(100, 50));
             rsm.add(new SpacerField(100, 50));
-
-            man.add(language);
             man.add(userName);
             man.add(password);
             
@@ -146,15 +153,15 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
 
 
     private void userSignin() {
-        if(userName.getText().equalsIgnoreCase("mail")) {
-            controller.inform("sign in");
+        if(userName.getText().equalsIgnoreCase(Labels.LBL_EMAIL_ADDRESS)) {
+            controller.inform(Labels.INF_SIGN_IN);
             return;
         }
         if(userName.getText().trim().equals("")) {
-            controller.inform("sign in");
+            controller.inform(Labels.INF_SIGN_IN);
             return;
         }
-//        controller.userNormalLogin(userName.getText(), password.getText(), language.getSelectedIndex(), save.getChecked());
+        controller.userNormalLogin(userName.getText(), password.getText(), save.getChecked());
     }
 
     public void modelPropertyChange(final PropertyChangeEvent evt) {
@@ -179,7 +186,7 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
             }
 
 
-        } else if (evt.getPropertyName() != null && evt.getPropertyName().equals("SETSETTINGS")) {
+        } else if (evt.getPropertyName() != null && evt.getPropertyName().equals(controller.SET_SETTINGS)) {
             //when loading from persistent store
             UiApplication.getUiApplication().invokeLater(new Runnable() {
 
@@ -192,7 +199,7 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
                 }
             });
         
-        } else if (evt.getPropertyName() != null && evt.getPropertyName().equals(controller.SHOW_LOGIN_VIEW)) {
+        } else if (evt.getPropertyName() != null && evt.getPropertyName().equals(controller.SHOW_LOGIN)) {
         	
             //clear the setting if !save
             if(!Model.getModel().getSettings().isSaveCredentials()) {
@@ -206,30 +213,28 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
 
             if (this.isDisplayed()) {
                 //already displayed
-            }
-            else {
+            } else {
                 Runnable r = new Runnable() {
-                	public void run() {
+                    public void run() {
                         init();
 //                        prepareSigninScreen();
                         deleteAll();
                         prepareSigninScreen();
                     }
                 };
-                    
-                
                 controller.pushScreen(this);
                 controller.invokeLater(r);
                 
             }
-        }
-//        else if (evt.getPropertyName() != null && evt.getPropertyName().equals(controller.HIDE_LOGIN)) {
-//            controller.popScreen(this);
-//        } else if (evt != null && evt.getPropertyName().equals(controller.SHOW_THROBBER)) {
+        } else if (evt.getPropertyName() != null && evt.getPropertyName().equals(controller.HIDE_LOGIN)) {
+            controller.popScreen(this);
+        } 
+//        else if (evt != null && evt.getPropertyName().equals(controller.SHOW_THROBBER)) {
 //            showThrobber();
-//        } else if (evt != null && evt.getPropertyName().equals(controller.HIDE_THROBBER)) {
-//            hideThrobber();
 //        }
+        else if (evt != null && evt.getPropertyName().equals(controller.HIDE_THROBBER)) {
+            hideThrobber();
+        }
     }
 
     //@Override
@@ -243,7 +248,7 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
         return true;
     }
 
-    MenuItem exitMenuItem = new MenuItem("exit", 10, 1001) {
+    MenuItem exitMenuItem = new MenuItem(Labels.LBL_EXIT, 10, 1001) {
 //            @Override
 
         public void run() {
@@ -279,7 +284,7 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
     }
 
     private void createFields() {
-        userName = new EmailAddressEditField("", "name", 50, BasicEditField.NO_NEWLINE | BasicEditField.FILTER_EMAIL) {
+        userName = new EmailAddressEditField("", Labels.LBL_NAME, 50, BasicEditField.NO_NEWLINE | BasicEditField.FILTER_EMAIL) {
 
             //todo add key listener if email is in use - WS63
             public boolean isFocusable() {
@@ -287,7 +292,7 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
             }
 
             protected void onFocus(int direction) {
-                if (getText().equals("name")) {
+                if (getText().equals(Labels.LBL_NAME)) {
                     setText("");
                 }
                 invalidate();
@@ -296,7 +301,7 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
 
             protected void onUnfocus() {
                 if (getText().equals("")) {
-                    setText("name");
+                    setText(Labels.LBL_NAME);
                 }
                 invalidate();
                 super.onUnfocus();
@@ -311,14 +316,14 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
 //        }
         };       
 
-        password = new PasswordEditField("", "name", 40, PasswordEditField.NO_NEWLINE) {
+        password = new PasswordEditField("", Labels.LBL_PASSWORD, 40, PasswordEditField.NO_NEWLINE) {
 
             public boolean isFocusable() {
                 return true;
             }
 
             protected void onFocus(int direction) {
-                if (getText().equals("name")) {
+                if (getText().equals(Labels.LBL_PASSWORD)) {
                     setText("");
                 }
                 invalidate();
@@ -327,7 +332,7 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
 
             protected void onUnfocus() {
                 if (getText().equals("")) {
-                    setText("name");
+                    setText(Labels.LBL_PASSWORD);
                 }
                 invalidate();
                 super.onUnfocus();
@@ -339,49 +344,6 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
             }
         };
 
-        save = new CheckboxField("save", false, Field.FIELD_RIGHT);
-         
-//        emailValidationSent = false;
-        
-//        String [] values = { Labels.LBL_ENGLISH, Labels.LBL_ITALIAN, Labels.LBL_SPANISH};
-//        language = new ObjectChoiceField(Labels.LBL_LANGUAGE, values);
-//        language.setFont(BasicTheme.text); //controller.getFont18()
-//        language.setSelectedIndex(Model.getModel().getLanguageIndex());
-//        
-//        language.setChangeListener(new FieldChangeListener() {
-//			
-//			//@Override
-//			public void fieldChanged(Field arg0, int arg1) {
-//				languageChanged();				
-//			}
-//		});
+        save = new CheckboxField(Labels.LBL_SAVE, false, Field.FIELD_RIGHT);
     }
-    
-//    private void languageChanged() {
-//    	if(language!=null) {
-//    		int index = language.getSelectedIndex();
-//    		controller.changeLabelsLanguage(index);
-//    		
-//    		language.setLabel(Labels.LBL_LANGUAGE);
-//    		
-//    		if(save!=null) {
-//    			save.setLabel(Labels.LBL_SAVE);
-//    		}
-////    		if(password!=null) {
-////    			password.setText(Labels.LBL_PASSWORD);
-////    		}
-//    		if(userName != null && Labels.checkName(userName.getText())) {
-//    			userName.setText(Labels.LBL_NAME);
-//    		}
-//    		if(login != null) {
-//    			login.setLabel(Labels.LBL_SIGN_IN);
-//    		}
-//    		updateTitle(Labels.LBL_SIGN_IN + "(" + Model.getVERSION()+")");
-//    		
-//    		//change menu labels
-//    		exitMenuItem.setText(Labels.LBL_EXIT);
-//    	}
-//    }
-} 
-
-
+}

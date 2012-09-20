@@ -1,5 +1,9 @@
 package com.f1rst.blackberry.net;
 
+/**
+ *
+ * @author ivaylo
+ */
 public class RestException extends Exception {
 
     /**

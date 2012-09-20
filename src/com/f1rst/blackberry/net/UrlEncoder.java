@@ -5,6 +5,10 @@ import java.io.ByteArrayOutputStream;
 import java.io.DataOutputStream;
 import java.io.IOException;
 
+/**
+ * Url encoder, that encode in capital letters because of the problems in
+ * server implemetation.
+ */
 public class UrlEncoder {
 
     public static String encode(String s, String enc) throws IOException {

@@ -4,6 +4,10 @@ import com.f1rst.blackberry.log.Logger;
 import com.f1rst.blackberry.model.LoginResult;
 import com.f1rst.blackberry.model.SettingsTable;
 
+/**
+ *
+ * @author ivaylo
+ */
 public class Model extends AbstractModel {
 
     private static Model staticModel = null;
@@ -23,7 +27,6 @@ public class Model extends AbstractModel {
  
     Settings settings;
     
-    
     /**
      * for managing debug level one.
      * This level means that display some extra info on the display.
@@ -31,8 +34,6 @@ public class Model extends AbstractModel {
      * It will allow to see extra ui markers for ui elements, that implements it.
      */
     private boolean debugLevelOne;
-    
-//    private String activeToolbarItem = ToolbarManager.ACTIVE_HOME;
 
     private Model() {
         staticModel = this;
@@ -50,7 +51,7 @@ public class Model extends AbstractModel {
     }
 
     public void setSettingsTable(SettingsTable settingsTable) {
-        propertyChangeSupport.firePropertyChange(DefaultController.SET_SETTINGS_TABLE, Model.getModel().getSettingsTable(), settingsTable);
+        propertyChangeSupport.firePropertyChange(DefaultController.SET_SETTINGS_TABLE, this.getModel().getSettingsTable(), settingsTable);
         getModel().getSettings().setSettingsTable(settingsTable);
     }
 
@@ -71,25 +72,25 @@ public class Model extends AbstractModel {
     }
 
     public void setUserName(String userName) {
-        propertyChangeSupport.firePropertyChange(DefaultController.SET_USERNAME, Model.getModel().getUserName(), userName);
+        propertyChangeSupport.firePropertyChange(DefaultController.SET_USERNAME, this.getModel().getUserName(), userName);
         getModel().getSettings().setUserName(userName);
     }
 
     public void setPassword(String password) {
-        propertyChangeSupport.firePropertyChange(DefaultController.SET_PASSWORD, Model.getModel().getPassword(), password);
+        propertyChangeSupport.firePropertyChange(DefaultController.SET_PASSWORD, this.getModel().getPassword(), password);
         getModel().getSettings().setPassword(password);
     }
 
     public void setSettingOne(String id) {
         Logger.log("set SettingOne id: " + id);
         getModel().getSettings().getSettingsTable().setSettingOne(id);
-        propertyChangeSupport.firePropertyChange(DefaultController.SET_SETTING_ONE, Model.getModel().getSettingOne(), id);
+        propertyChangeSupport.firePropertyChange(DefaultController.SET_SETTING_ONE, this.getModel().getSettingOne(), id);
     } 
 
     public void setAccessToken(String accessToken) {
         Logger.log("set Access Token: " + accessToken);
         getModel().getSettings().getSettingsTable().setAccessToken(accessToken);
-        propertyChangeSupport.firePropertyChange(DefaultController.SET_ACCESS_TOKEN, Model.getModel().getAccessToken(), accessToken);
+        propertyChangeSupport.firePropertyChange(DefaultController.SET_ACCESS_TOKEN, this.getModel().getAccessToken(), accessToken);
     }
 
     public String getAccessToken() {
@@ -123,9 +124,9 @@ public class Model extends AbstractModel {
 
     public void setIsStatusShown(boolean isStatusShown) {
         propertyChangeSupport.firePropertyChange(DefaultController.SET_IS_STATUS_SHOWN,
-                new Boolean(Model.getModel().isStatusShown),
+                new Boolean(this.getModel().isStatusShown),
                 new Boolean(isStatusShown));
-        Model.getModel().isStatusShown = isStatusShown;
+        this.getModel().isStatusShown = isStatusShown;
     }
 
 
@@ -146,14 +147,4 @@ public class Model extends AbstractModel {
         getModel().getSettings().getLoginResult().setResult(lr.getResult());
         propertyChangeSupport.firePropertyChange(DefaultController.SET_LOGIN_RESULT, null, lr);		
 	}
-	
-	public void setActiveToolbarItem(String activeToolbarItem) {
-		Logger.log("setActiveToolbarItem: " + activeToolbarItem);
-//		getModel().activeToolbarItem = activeToolbarItem;
-	}
-	
-//	public String getActiveToolbarItem() {
-////		return getModel().activeToolbarItem;
-//	}
 }
-

@@ -3,6 +3,10 @@ package com.f1rst.blackberry.ui;
 import net.rim.device.api.ui.Font;
 import net.rim.device.api.ui.FontFamily;
 
+/**
+ *
+ * @author ivaylo
+ */
 public class FontManager {
 
     static Font componentFont;

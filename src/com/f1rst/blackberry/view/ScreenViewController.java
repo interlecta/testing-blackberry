@@ -5,6 +5,10 @@ import com.f1rst.blackberry.util.AbstractViewPanel;
 import com.f1rst.blackberry.util.DefaultController;
 import com.f1rst.blackberry.util.PropertyChangeEvent;
 
+/**
+ * Screen View Controller
+ * @author ivaylo
+ */
 public class ScreenViewController implements AbstractViewPanel {
     private DefaultController controller;
 
@@ -21,7 +25,7 @@ public class ScreenViewController implements AbstractViewPanel {
     		
     		//MenuScreen.getMenuScreen(controller);
             //MenuScreen.getMenuScreen(controller).setUpdates(u);
-//            controller.pushScreen(MenuScreen.getMenuScreen(controller));
+            controller.pushScreen(MenuScreen.getMenuScreen(controller));
     	} else        
         if(evt.getPropertyName().equals(controller.SET_SETTING_ONE)){
             //

@@ -1,6 +1,11 @@
 package com.f1rst.blackberry.util;
 
-public abstract class AbstractModel {
+	/**
+ *
+ * @author ivaylo
+ */
+public abstract class AbstractModel
+{
 
     protected PropertyChangeSupport propertyChangeSupport;
 

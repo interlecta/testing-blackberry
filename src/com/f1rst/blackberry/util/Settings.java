@@ -1,5 +1,7 @@
 package com.f1rst.blackberry.util;
 
+//import java.security.Permissions;
+
 import com.f1rst.blackberry.ImageCache;
 import com.f1rst.blackberry.log.Logger;
 import com.f1rst.blackberry.model.LoginResult;
@@ -8,6 +10,10 @@ import com.f1rst.blackberry.model.SettingsTable;
 import net.rim.device.api.system.PersistentObject;
 import net.rim.device.api.system.PersistentStore;
 
+/**
+ *
+ * @author ivaylo
+ */
 public class Settings implements net.rim.device.api.util.Persistable {
 
     private static final long MODELKEY = 0x4562bbb0731b594L;
@@ -30,7 +36,7 @@ public class Settings implements net.rim.device.api.util.Persistable {
     private boolean saveCredentials;
 
     private LoginResult loginResult;
-    
+
     public void setLoginResult(LoginResult loginResult) {
 		this.loginResult = loginResult;
 	}
@@ -40,6 +46,14 @@ public class Settings implements net.rim.device.api.util.Persistable {
     		loginResult = new LoginResult();
     	}
 		return loginResult;
+	}
+    
+    public void setLanguageIndex(int languageIndex) {
+		this.languageIndex = languageIndex;
+	}
+    
+    public int getLanguageIndex() {
+		return languageIndex;
 	}
     
     public int getConnectionSuffixIndex() {
@@ -87,6 +101,14 @@ public class Settings implements net.rim.device.api.util.Persistable {
     public void setUserName(String userName) {
         this.userName = userName;
     }
+
+    public boolean isSaveCredentials() {
+        return saveCredentials;
+    }
+
+    public void setSaveCredentials(boolean saveCredentials) {
+        this.saveCredentials = saveCredentials;
+    }
     
     public Settings() {
     }
@@ -119,14 +141,6 @@ public class Settings implements net.rim.device.api.util.Persistable {
          }
          return SINGLETONINSTANCE;
     }
-    
-    public boolean isSaveCredentials() {
-        return saveCredentials;
-    }
-    
-    public void setSaveCredentials(boolean saveCredentials) {
-        this.saveCredentials = saveCredentials;
-    }
 
     public void commit() {
         PersistentObject persist = PersistentStore.getPersistentObject( MODELKEY );
@@ -152,3 +166,4 @@ public class Settings implements net.rim.device.api.util.Persistable {
     }
 
 }
+
