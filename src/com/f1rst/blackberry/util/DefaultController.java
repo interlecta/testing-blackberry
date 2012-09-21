@@ -164,21 +164,21 @@ public class DefaultController extends AbstractControllerImplementation
 	 * @param save
 	 */
 	public void userNormalLogin(final String userName, final String password, final boolean save) {
-		Logger.log("userNormalLogin:" + " " + userName + " " + password + " " + String.valueOf(save));
+		Logger.log("userNormalLogin at:" + "http://f1rst.trapis.net/f1rst-apisim/rest/authentication.signin?username=test&password=test");
 
 		if(isNetworkOperationStarted()) {
 			return;
 		}
 		
-		showStatus(Labels.INF_LOGGING_IN);
+//		showStatus(Labels.INF_LOGGING_IN);
 
 		if (!(UiApplication.getUiApplication().getActiveScreen() instanceof LoginView)) {
-			setModelProperty(SET_STATUS_MESSAGE, Labels.LBL_SIGNING_IN);
-			setModelProperty(DefaultController.SET_IS_STATUS_SHOWN, new Boolean(true));
+//			setModelProperty(SET_STATUS_MESSAGE, Labels.LBL_SIGNING_IN);
+//			setModelProperty(DefaultController.SET_IS_STATUS_SHOWN, new Boolean(true));
 		}
 		
 		
-		setModelProperty(SET_STATUS_MESSAGE, Labels.LBL_LOGGING);
+//		setModelProperty(SET_STATUS_MESSAGE, Labels.LBL_LOGGING);
 		isInterrupted = false;
 
 		if (save) {
@@ -203,48 +203,42 @@ public class DefaultController extends AbstractControllerImplementation
 
 				try {
 					User u = new User();
-					// TEST credential for testing the cart
-					// Comment when finish the testing
-//					 String user = "unifi001";
-//					 String psw = "000fww234";
-//					 String application_id = "unifigrouptest";
-//					 String resultS = u.login(user, psw, application_id);
-					
-					// normal credentials for the app usage.
-					String application_id = "unifigroup";
+					String application_id = "test";
 					String resultS = u.login(userName, password, application_id);
 					 
 					Logger.log("userNormalLogin result: " + String.valueOf(resultS));
 
 					//validating if the token is valid
-					try {
-						String t = new JSONObject(resultS).getJSONObject(
-								"Token").optString("Token");
-						if(TextUtils.isEmpty(t)) {
-							//username or password problem.
-							showMessage(Labels.INF_INVALID_CREDENTIALS);
-							if (save) {
-								Model.getModel().setUserName("");
-								Model.getModel().setPassword("");
-								Model.getModel().getSettings().setSaveCredentials(false);
-								Model.getModel().getSettings().commit();
-							}
-							return;
-						}
-					} catch (JSONException e) {
-						showMessage(Labels.INF_INVALID_CREDENTIALS);
-						if (save) {
-							Model.getModel().setUserName("");
-							Model.getModel().setPassword("");
-							Model.getModel().getSettings().setSaveCredentials(false);
-							Model.getModel().getSettings().commit();
-						}
-						return;
-					}
+//					try {
+//						String t = new JSONObject(resultS).getJSONObject(
+//								"Token").optString("Token");
+//						if(TextUtils.isEmpty(t)) {
+//							//username or password problem.
+//							showMessage(Labels.INF_INVALID_CREDENTIALS);
+//							if (save) {
+//								Model.getModel().setUserName("");
+//								Model.getModel().setPassword("");
+//								Model.getModel().getSettings().setSaveCredentials(false);
+//								Model.getModel().getSettings().commit();
+//							}
+//							return;
+//						}
+//					} catch (JSONException e) {
+//						showMessage(Labels.INF_INVALID_CREDENTIALS);
+//						if (save) {
+//							Model.getModel().setUserName("");
+//							Model.getModel().setPassword("");
+//							Model.getModel().getSettings().setSaveCredentials(false);
+//							Model.getModel().getSettings().commit();
+//						}
+//						return;
+//					}
 
 					// parse user login result
 					if (resultS != null) {
+						Logger.log("ttttttt");
 						LoginResult lr = new LoginResult(resultS);
+						Logger.log("lr: "+lr.getResult());
 						setModelProperty(SET_LOGIN_RESULT, lr);
 						propertyChange(new PropertyChangeEvent(null, HIDE_LOGIN, null, null));						
 						// show main menu						
@@ -1067,4 +1061,5 @@ public class DefaultController extends AbstractControllerImplementation
 	
 	public static final String SET_ACTIVE_TOOLBAR_ITEM = "setactiveToolbarItem";
 	public static final String SET_IS_STATUS_SHOWN = null;
+	public static final String SHOW_SAMPLE_LOGIN = "showSampleLogin";
 }

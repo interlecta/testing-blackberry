@@ -732,10 +732,13 @@ public class StatusView2 implements AbstractViewPanel {
 
     //@Override
     public void modelPropertyChange(PropertyChangeEvent evt) {
-        Logger.log("StatusView2 " + evt.getPropertyName() + String.valueOf(evt.getNewValue()));
-        if (evt.getPropertyName().endsWith("setStatusMessage")) {
-            this.setMessage((String) evt.getNewValue());
-        } else if (evt.getPropertyName().equals(DefaultController.SET_IS_STATUS_SHOWN)) {// "isStatusShown"
+//    	while stesting
+//        Logger.log("StatusView2 " + evt.getPropertyName() + String.valueOf(evt.getNewValue()));
+//        if (evt.getPropertyName().endsWith("setStatusMessage")) {
+//            this.setMessage((String) evt.getNewValue());
+//        } 
+//        else 
+        	if (evt.getPropertyName().equals(DefaultController.SET_IS_STATUS_SHOWN)) {// "isStatusShown"
 
             if (evt.getNewValue() != null && evt.getNewValue() instanceof Boolean && evt.getNewValue().equals(new Boolean(false))) {
                 if (d != null) {

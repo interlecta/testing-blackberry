@@ -25,7 +25,7 @@ public class User extends Rest {
             return "{\"session_token\":\"123555123\"}";
         }
         //String url = ConnectionManager.getUrl() + "../LogOn";
-        String url = "login string";
+        String url = "http://f1rst.trapis.net/f1rst-apisim/rest/authentication.signin?";
      
         String parameters = "";
 //        try {
@@ -40,7 +40,7 @@ public class User extends Rest {
 //        }
         
         try {
-	        parameters = new JSONObject().put("ApplicationId", applicationId)//"unifigrouptest")
+	        parameters = new JSONObject()//.put("ApplicationId", applicationId)//"unifigrouptest")
 	    	.put("Password", password)
 	    	.put("UserName", username).toString();
         } catch (JSONException e) {
@@ -50,6 +50,7 @@ public class User extends Rest {
         		
 //        url += parameters;
         url += ConnectionManager.getConnectionSuffix();
+        Logger.log("end url: "+url);
 
 //        response = proceedPUTConnection(url, parameters.substring(1));
         response = proceedPUTConnection(url, parameters);

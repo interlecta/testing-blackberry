@@ -143,7 +143,6 @@ public class Model extends AbstractModel {
 	}
 	
 	public void setLoginResult(LoginResult lr){
-		Logger.log("set LoginResult: " + lr.getResult());
         getModel().getSettings().getLoginResult().setResult(lr.getResult());
         propertyChangeSupport.firePropertyChange(DefaultController.SET_LOGIN_RESULT, null, lr);		
 	}

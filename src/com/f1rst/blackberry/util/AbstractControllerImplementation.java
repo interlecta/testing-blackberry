@@ -1,5 +1,6 @@
 package com.f1rst.blackberry.util;
 
+import com.f1rst.blackberry.log.Logger;
 import com.f1rst.blackberry.model.LoginResult;
 
 /**
@@ -11,6 +12,7 @@ public class AbstractControllerImplementation extends AbstractController {
      protected void setModelProperty(String propertyName, Object newValue) {
 
     	if(propertyName.equals(DefaultController.SET_LOGIN_RESULT)) {
+    		Logger.log("0");
              for (int i = 0; i < getRegisteredModels().size(); i++) {
                  if(getRegisteredModels().elementAt(i) instanceof Model){
                      Model object = (Model)getRegisteredModels().elementAt(i);

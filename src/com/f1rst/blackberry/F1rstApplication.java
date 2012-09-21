@@ -13,6 +13,7 @@ import com.f1rst.blackberry.util.Settings;
 import com.f1rst.blackberry.view.GlobalStatusScreen;
 import com.f1rst.blackberry.view.LoginView;
 import com.f1rst.blackberry.view.MenuScreen;
+import com.f1rst.blackberry.view.SampleLoginView;
 import com.f1rst.blackberry.view.ScreenViewController;
 import com.f1rst.blackberry.view.StatusView2;
 
@@ -34,8 +35,8 @@ public class F1rstApplication extends UiApplication {
 
 //        new Thread(new Runnable() {
 //            public void run(){
-//                createApplicationComponents();
-    	pushScreen(new LoginView());
+                createApplicationComponents();
+//    	pushScreen(new LoginView());
 //            }
 //        }).start();
     }
@@ -69,28 +70,35 @@ public class F1rstApplication extends UiApplication {
                 	StatusView2 sv2 = new StatusView2(controller);
                 	
                     LoginView loginView = new LoginView(controller);
+                    SampleLoginView slv = new SampleLoginView(controller);
                     ScreenViewController svc = new ScreenViewController(controller);
                     
                     GlobalStatusScreen sssv = new GlobalStatusScreen(controller);
+                    MenuScreen ms = new MenuScreen(controller);
                     
                     
                     controller.addView(sv2);
                     
                     controller.addView(loginView);
+                    controller.addView(slv);
                     controller.addView(svc);
                                        
                     controller.addView(sssv);
+                    controller.addView(ms);
                     //controller.addView(related_pdv);
                     
-                    controller.addView(MenuScreen.getMenuScreen(controller));
+//                    controller.addView(MenuScreen.getMenuScreen(controller));
                     
                     controller.addModel(model);
 
                     model.setSettings(settings);
 
-                    controller.show();
+                    final UiApplication ui = UiApplication.getUiApplication();
+            		
+            			Logger.log("log");
+            			ui.pushScreen(loginView);
                 }
             };
-            new Thread(r2).start();
+            invokeLater(r2);
     }
 }

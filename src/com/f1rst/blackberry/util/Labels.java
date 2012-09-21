@@ -13,7 +13,11 @@ package com.f1rst.blackberry.util;
 public class Labels {
 	
     public final static String LBL_APP_NAME = "F1rst"; //SHOULD NOT BE TRANSLATED
-    public final static String LBL_APP_NAME_TITLE = "F1rst"; 
+    public final static String LBL_APP_NAME_TITLE = "F1rst";
+	public static final String LBL_MAIN_TITLE = "Hello and Welcome to F1rst";
+	public static final String LBL_LOGIN = "Login";
+	public static final String LBL_LOGIN_INF = "USE YOUR F1RST USERNAME (EMAIL) AND PASSWORD";
+	public static final String LBL_LOGIN_INF2 = "OR USE YOUR SOCIAL ACCOUNT"; 
     
     public static String LBL_LOGGING = ""; //miss
     public static String LBL_SIGNING_IN = ""; //miss
@@ -28,14 +32,12 @@ public class Labels {
     public static String LBL_SAVE = ""; //miss
            
 	public static String LBL_SELECT = ""; //<string name="">Select Action</string> ?? <string name="">Select the search type"</string> 
-    public static String LBL_CONTINUE = ""; //miss
-    public static String LBL_CONFIRM = ""; //miss
-    public static String LBL_SEARCHING = "";//"Searching..."; //miss,modified without ...
+    public static String LBL_CONTINUE = "Continue Without Registering";
+    public static String LBL_CONFIRM = "";
+    public static String LBL_SEARCHING = "";
     public static String LBL_SEARCH = "";
-    public static String INF_GETTING_DETAILS = "Getting details..."; //miss
-
-    public static String INF_CONNECTION_TIMED_OUT = "";//"connection timed out"; <string name="">Internet connection is not available</string> 
-    															// ?? <string name="">Service is unavailable. Try again later</string>
+    public static String INF_GETTING_DETAILS = "Getting details...";
+    public static String INF_CONNECTION_TIMED_OUT = "";
     public static String INF_UNABLE_TO_COMPLETE = ""; //miss or same as INF_CONNECTION_TIMED_OUT
     public static String INF_UPDATED = ""; //miss
     
@@ -254,275 +256,7 @@ public class Labels {
 	public static String LBL_NAME_ES = "Nombre";
 	public static String LBL_NAME_IT = "Nome";
 	
-	static {
-		setEnglish();
-	}
-	private static void setEnglish() {
-		LBL_LOGGING = "Signing in..."; // miss
-		LBL_SIGNING_IN = "Signing in..."; // miss
-		LBL_CANCELLED = "Cancelled!"; // miis
-		LBL_RETRY = "Retry?"; // miss
-		LBL_REFRESH = "Refresh"; // miss
-		LBL_REFRESHING = " refreshing..."; // miss
-		LBL_RETRYING = "retrying..."; // miss
-		LBL_UPDATING = " updating..."; // miss
-		LBL_OPERATION_FAILED = "Operation failed."; // miss
-		LBL_BACK = "Back"; // miss
-		LBL_SAVE = "Save"; // miss
-
-		LBL_SELECT = "Select"; // <string name="action">Select Action</string>
-								// ?? <string
-								// name="search_manifacturer_title">Select the
-								// search type"</string>
-		LBL_CONTINUE = "Continue"; // miss
-		LBL_CONFIRM = "Confirm"; // miss
-		LBL_SEARCHING = "Searching";// "Searching..."; //miss,modified without
-									// ...
-		LBL_SEARCH = "Search";
-		INF_GETTING_DETAILS = "Getting details..."; // miss
-
-		INF_CONNECTION_TIMED_OUT = "";// "connection timed out"; <string
-										// name="no_connection">Internet
-										// connection is not available</string>
-										// ?? <string
-										// name="service_call_error">Service is
-										// unavailable. Try again later</string>
-		INF_UNABLE_TO_COMPLETE = "Unable to complete the operation."; // miss or
-																		// same
-																		// as
-																		// INF_CONNECTION_TIMED_OUT
-		INF_UPDATED = "Updated."; // miss
-
-		INF_INVALID_DATA = "Invalid data!"; // <string
-											// name="incorrect_credentials">Incorrect
-											// username or password</string>
-		LBL_SETTINGS = "Settings"; // miss
-		LBL_HELP = "Help"; // miss
-		LBL_HELP_ABOUT = "Help/About"; // miss
-
-		LBL_FEEDBACK = "Feedback"; // miss
-		LBL_BUGS_FEEDBACK = "Bugs/Feedback";// miss
-		LBL_LOG_OUT = "Logout";
-		INF_ARE_YOU_SURE_LOG_OUT = "Are you sure you want to log out?";// miss
-
-		LBL_NAME = "Name";
-		LBL_NEXT = "Next"; // Show the next 20 ?
-		LBL_PASSWORD = "Password";
-		LBL_SCHOOL = "School";// miss
-		LBL_DESCRIPTION = "Description";
-		LBL_CLICK_TO_CHANGE = "click to change";// miss
-		INF_ARE_YOU_SURE_YOU_WANT_TO_REMOVE = "Are you sure that you want to remove "; // miss
-
-		LBL_ADD = "Add"; // <string name="add_to_cart">Add to Cart</string>
-		LBL_REMOVE = "Remove"; // <string name="delete">Delete</string>
-		LBL_EDIT = "Edit"; // miss
-		LBL_EMAIL = "Email"; // <string
-								// name="profile_email_code">e-mail</string>
-		LBL_EMAIL_ADDRESS = "Email Address"; // ==//==
-		LBL_OK = "Ok";
-		LBL_OTHER = "Other";// miss
-		LBL_OTHERS = "Others";// miss
-		LBL_TEXT = "Text";// miss
-		LBL_CANCEL = "Cancel";
-		LBL_DETAILS = "Details";
-		LBL_DELETE = "Delete";
-		LBL_SECTORS = "Sectors";// miss
-		INF_NO_SECTORS = "There are no sectors available!"; //miss
-		INF_NO_FAMILIES = "There are no families available!"; // miss
-
-		INF_EXIT = "Are you sure you want to exit the application?"; // Do you
-																		// really
-																		// want
-																		// to
-																		// exit?
-
-		LBL_CATEGORIES = "Categories";
-		INF_NO_CATEGORIES = "No Categories!";
-		INF_NO_PRODUCTS = "No Products!";
-		
-		INF_INVALID_CREDENTIALS = "Invalid username and password.";
-
-		INF_NO_SEARCH_RESULTS = "No Results";//No Results!
-		INF_NO_RESULTS = "No Results";//No Results!
-		INF_NO_PRODUCT_DETAILS = "No Product Details are available!"; // <string
-														// name="no_details">No
-														// product details are
-														// available</string>
-
-		LBL_SEARCH_RESULTS = "Search Results";
-		LBL_PRODUCT_DETAILS = "Product Details";
-		LBL_FAVOURITES = "Favorites";
-
-		LBL_CART = "Shopping Cart";
-
-		LBL_IMAGE_GALLERY = "Image Gallery";
-		LBL_TECHNICAL_DETAILS = "Technical Details";
-		LBL_BRAND = "Brand";
-		LBL_BRANDS = "Brands";
-		LBL_AVAILABILITY = "Availability";
-		LBL_RELATED_PRODUCTS = "Related Products";
-
-		LBL_FEES = "Fees";
-		LBL_TOTAL_PRICE_NO_VAT = "Total Price (no VAT)";
-		LBL_TOTAL_PRICE_VAT = "Total Price (with VAT)";
-		LBL_BUY = "Buy";
-		LBL_HISTORY = "History";
-		LBL_ADD_TO_FAVORITES = "Add To Favorites";
-		LBL_MORE_DETAILS = "More";
-		LBL_ADDITIONAL_DETAILS = "Additional Details";
-		// public final static String LBL_TECHNICAL_DETAILS =
-		// "Technical Details";
-
-		EURO_SIGN = "\u20AC";
-		STAR_SIGN = "\u22C6";// STAR OPERATOR
-								// //http://www.fileformat.info/info/unicode/char/22c6/index.htm
-		STAR_SIGN_2 = "\u2605";// black star
-		STAR_SIGN_3 = "\u066D";// arabic five pointed star
-		STAR_SIGN_4 = "\u2B50";// white medium star U+2B50
-		STAR_SIGN_5 = "\u2606";// http://en.wikipedia.org/wiki/Miscellaneous_Symbols
-
-		EURO_SIGN_BRACKETS = "(\u20AC)";
-
-		LBL_EAN = "EAN";
-		LBL_CODE = "Code";
-		LBL_MANUF_CODE = "Manuf. Code";
-		LBL_MANUF_WARRANTY = "Manuf. warranty";
-		//LBL_PRICE = "Price " + EURO_SIGN_BRACKETS;
-		LBL_LIST_PRICE = "List Price";// + EURO_SIGN_BRACKETS;
-//		LBL_END_PRICE = "End Price " + EURO_SIGN_BRACKETS;
-		LBL_END_USER_WARRANTY = "End User Warranty";
-
-		//INF_ADDED_TO_FAVORITES = "Added to favorites.";
-		//INF_ALREADY_IN_FAVORITES = "The product is already in favorites";
-
-		INF_NO_FAVORITE_PRODUCTS = "No Favorite Products!";
-		INF_NO_HISTORY_PRODUCTS = "No Products in the History!";
-
-		LBL_FAMILIES = "Families";
-		LBL_ADDRESSES = "Delivery address";
-		INF_NO_ADDRESSES = "You don\'t have any shipping addresses";
-		//LBL_CARIERS = "Carrier";
-		INF_NO_CARIERS = "You don\'t have any carriers";
-
-		LBL_CARRIER = "Carrier";
-		LBL_ADDRESS = "Address";
-		LBL_ORDER_SUMMARY = "Order Summary";
-		INF_ORDER_SUCCESS = "Order was completed successfully";
-		INF_ORDER_PROBLEM = "Order was not completed successfully";
-		LBL_GALLERY = "Gallery";
-
-		LBL_CODE_SMALL = "code";
-		LBL_AVAILABILITY_SMALL = "availability";
-
-		INF_ENTER_VALID_QUANTITY = "Please enter a valid quantity!";
-		INF_NO_AVAILABILITY = "No availability from this product!";
-		INF_NO_ENOUGH_QUANTITY = "Not enough quantity!";
-
-		LBL_QUANTITY = "Quantity";
-
-		LBL_ADD_TO_CART = "Add to Cart";
-		// public final static String LBL_ADD_TO_FAVORITES = "Add to Favorites";
-		// public final static String LBL_ADD_TO_CART = "Add to Cart";
-		// public final static String LBL_ADD_TO_CART = "Add to Cart";
-		// public final static String LBL_ADD_TO_CART = "Add to Cart";
-
-		LBL_EVENTS = "Events";
-		LBL_PROFILE = "Profile";
-		LBL_CUSTOMER_CODE = "CustomerCode";
-		LBL_MAIL = "e-mail";
-		LBL_USER_CODE = "UserCode";
-		LBL_LANGUAGE = "Language";
-		LBL_PRICE_TAB = "Price tab";
-
-		LBL_START_DATE = "Start Date: ";
-		LBL_END_DATE = "End Date: ";
-
-		LBL_ENGLISH = "English";
-		// public final static String LBL_RELATED_PRODUCTS = "Related Products";
-		LBL_SPANISH = "Spanish";
-		LBL_ITALIAN = "Italian";
-
-		LBL_YOUR_PRICE = "Your Price";
-
-		LBL_PROMOTIONS = "Promotions";
-		INF_NO_PROMOTIONS = "No Promotions!";
-
-		LBL_IN_THE_FUTURE = "In the Future";
-		LBL_DAYSAGO = "Days Ago";
-		LBL_YESTERDAY = "Yesterday";
-		LBL_TODAY = "Today";
-		LBL_1YEARAGO = "One Year Ago";
-		LBL_YEARSAGO = "Years ago";
-		LBL_1MONTHAGO = "1 Month Ago";
-		LBL_MONTHSAGO = "Months Ago";
-		LBL_1WEEKAGO = "1 Week Ago";
-		LBL_2WEEKSAGO = "2 Weeks Ago";
-		LBL_3WEEKSAGO = "3 Weeks Ago";
-
-		LBL_GOTOPRODUCTS = "Search products in promo";
-		// public final static String LBL_RELATED_PRODUCTS =
-		// "Products Products";
-
-		LBL_ALL_BRANDS = "All Brands";
-		LBL_BRANDS_BY_LETTER = "Brands by Letter";
-		LBL_SELECT_SEARCH_TYPE = "Select search type";
-
-		INF_UNABLE_TO_CONNECT = "Unable to connect to the service. Retry?";
-		INF_REMOVE_VERIFICATION = "Are you sure you want to remove this product from the cart?";
-		LBL_GET_DETAILS = "Get Details";
-		LBL_GALLERY_TITLE = "Gallery";
-		LBL_SIGN_IN = "Sign in";
-		INF_SIGN_IN = "Enter your username.";
-		LBL_EXIT = "Exit";
-		INF_EMTPY_PRODUCT = "The product is empty!";
-		LBL_PRICE_TYPE = "Price Type";
-		LBL_MORE = "More";
-		LBL_DEBUG = "Debug";
-		LBL_WAIT = "Please wait...";
-		INF_NEVER_SHOW = "Never show this message again.";
-		INF_DONT_SHOW = "Do not show this message again.";
-		LBL_YES = "Yes";
-		LBL_NO = "No";
-
-		// =================new
-		// labels===================================================
-		//LBL_LIST_PRICE_SIMPLE = "List Price";
-		INF_NO_PROFILE_DATA = "Unable to get your profile data.";
-		INF_GETTING_USER_INFO = "Getting user info";
-
-		INF_GETTING_CATEGORIES = "Getting categories";
-		INF_GETTING_PRODUCTS = "Getting products";
-		INF_NO_PRODUCTS_AVAILABLE = "No products available";
-		INF_GETTING_INFO = "Getting information";
-		INF_GETTING_ADDRESSES = "Getting addresses";
-		INF_GETTING_CARRIERS = "Getting carriers";
-		INF_PROCESSING_ORDER = "Processing order";
-		INF_GETTING_MANIFACTURERS = "Getting manifacturers";
-		INF_GETTING_FAMILIES = "Getting families";
-		INF_LOGGING_IN = "Logging in";
-		INF_GETTING_CART = "Getting cart";
-		INF_UPDATING_CART = "Updating cart";
-		INF_CART_UPDATED = "Cart updated!";
-		INF_CART_NOT_UPDATED = "Cart not updated!";
-
-		INF_SOMETHING_WRONG_RETRY = "Something went wrong! Please retry!\n";
-		LBL_NEWS_EVENTS = "News/Events";
-		LBL_PROMOTION = "Promotion";
-		LBL_PRODUCTS = "Products";
-		LBL_PRICE_SIMPLE = "Price";
-		INF_NO_NEWS_EVENTS = "No news/events!";
-
-		LBL_TYPE_LETTERS_OF_BRAND = "Type the first letters of a brand";
-		LBL_QUICK_SEARCH = "Quick search";
-
-		LBL_PLEASE_ENTER_QUANTITY = "Please Enter a quantity";
-		
-		INF_LOADING = "Loading... Please wait";
-		
-		LBL_PRODUCTS_IN_CART = "Products in Cart";
-		LBL_TOTAL = "Total";
-		
-	}
+	
 	private static void setItalian() {
 		LBL_LANGUAGE = "Lingua";
 		LBL_NAME = LBL_NAME_IT; //<string name="LoginController.UserName">Utente</string> 

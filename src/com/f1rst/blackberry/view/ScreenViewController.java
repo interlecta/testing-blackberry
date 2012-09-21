@@ -1,5 +1,6 @@
 package com.f1rst.blackberry.view;
 
+import com.f1rst.blackberry.log.Logger;
 import com.f1rst.blackberry.model.LoginResult;
 import com.f1rst.blackberry.util.AbstractViewPanel;
 import com.f1rst.blackberry.util.DefaultController;
@@ -21,8 +22,6 @@ public class ScreenViewController implements AbstractViewPanel {
 
     public void modelPropertyChange(PropertyChangeEvent evt) {
     	if(evt.getPropertyName().equals(controller.SET_LOGIN_RESULT)) {
-    		LoginResult l = (LoginResult)evt.getNewValue();
-    		
     		//MenuScreen.getMenuScreen(controller);
             //MenuScreen.getMenuScreen(controller).setUpdates(u);
             controller.pushScreen(MenuScreen.getMenuScreen(controller));
