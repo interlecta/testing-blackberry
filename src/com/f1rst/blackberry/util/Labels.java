@@ -17,7 +17,9 @@ public class Labels {
 	public static final String LBL_MAIN_TITLE = "Hello and Welcome to F1rst";
 	public static final String LBL_LOGIN = "Login";
 	public static final String LBL_LOGIN_INF = "USE YOUR F1RST USERNAME (EMAIL) AND PASSWORD";
-	public static final String LBL_LOGIN_INF2 = "OR USE YOUR SOCIAL ACCOUNT"; 
+	public static final String LBL_LOGIN_INF2 = "OR USE YOUR SOCIAL ACCOUNT";
+	public static final String LBL_REGISTER = "Register";
+	public static final String LBL_SIGNUP_WITH_SOCIAL_ACC = "SIGNUP USING YOUR SOCIAL ACCOUNT"; 
     
     public static String LBL_LOGGING = ""; //miss
     public static String LBL_SIGNING_IN = ""; //miss

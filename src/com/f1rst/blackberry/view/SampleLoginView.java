@@ -123,7 +123,7 @@ public class SampleLoginView extends ApplicationMainScreen implements AbstractVi
         password.setBorder(BorderFactory.createRoundedBorder(new XYEdges(6, 6, 6, 6),
                 0xc0c0c0,Border.STYLE_SOLID));
         
-//        facebook = new BitmapButtonField(Bitmap.getBitmapResource(""), Bitmap.getBitmapResource(""), "F", ButtonField.CONSUME_CLICK);
+        facebook = new BitmapButtonField(Bitmap.getBitmapResource("test.png"), Bitmap.getBitmapResource("test.png"), "F", ButtonField.CONSUME_CLICK);
 //        tweeter = new BitmapButtonField(Bitmap.getBitmapResource(""), Bitmap.getBitmapResource(""), "T", ButtonField.CONSUME_CLICK);
 //        google = new BitmapButtonField(Bitmap.getBitmapResource(""), Bitmap.getBitmapResource(""), "G", ButtonField.CONSUME_CLICK);
 //        ms = new BitmapButtonField(Bitmap.getBitmapResource(""), Bitmap.getBitmapResource(""), "MS", ButtonField.CONSUME_CLICK);
@@ -131,11 +131,11 @@ public class SampleLoginView extends ApplicationMainScreen implements AbstractVi
         
         login = new ButtonField("Login", ButtonField.CONSUME_CLICK | Field.FIELD_HCENTER);
         
-//        facebook.setChangeListener(new FieldChangeListener() {
-//			public void fieldChanged(Field arg0, int arg1) {
-//				facebookClicked();
-//			}
-//		});
+        facebook.setChangeListener(new FieldChangeListener() {
+			public void fieldChanged(Field arg0, int arg1) {
+				facebookClicked();
+			}
+		});
 //        tweeter.setChangeListener(new FieldChangeListener() {
 //			public void fieldChanged(Field arg0, int arg1) {
 //				tweeterClicked();
@@ -163,7 +163,7 @@ public class SampleLoginView extends ApplicationMainScreen implements AbstractVi
 			}
 		});
         
-        VerticalFieldManager v = new VerticalFieldManager();
+        VerticalFieldManager v = new VerticalFieldManager(Field.USE_ALL_WIDTH);
         v.add(loginInf);
         v.add(userName);
         v.add(password);
@@ -171,13 +171,13 @@ public class SampleLoginView extends ApplicationMainScreen implements AbstractVi
         v.add(loginInf2);
         add(v);
         
-//        HorizontalFieldManager h = new HorizontalFieldManager();
-//        h.add(facebook);
+        HorizontalFieldManager h = new HorizontalFieldManager(Field.USE_ALL_HEIGHT);
+        h.add(facebook);
 //        h.add(tweeter);
 //        h.add(google);
 //        h.add(ms);
 //        h.add(yahoo);
-//        add(h);
+        add(h);
     }
     
     protected void loginClicked() {
@@ -206,7 +206,7 @@ public class SampleLoginView extends ApplicationMainScreen implements AbstractVi
 	}
 
 	protected void facebookClicked() {
-		// TODO Auto-generated method stub
+		controller.userFacebookLogin();
 		
 	}
 

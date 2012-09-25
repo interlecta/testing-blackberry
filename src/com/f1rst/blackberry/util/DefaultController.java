@@ -25,6 +25,9 @@ import net.rim.device.api.ui.component.Status;
 import net.rim.device.api.ui.container.MainScreen;
 
 import com.f1rst.blackberry.ImageCache;
+import com.f1rst.blackberry.facebook.ApplicationSettings;
+import com.f1rst.blackberry.facebook.F1rstFacebookClient;
+import com.f1rst.blackberry.facebook.Facebook;
 import com.f1rst.blackberry.json.JSONException;
 import com.f1rst.blackberry.json.JSONObject;
 import com.f1rst.blackberry.log.Logger;
@@ -1025,6 +1028,7 @@ public class DefaultController extends AbstractControllerImplementation
 	}
 
 	private Bitmap hourglass40;
+	private Facebook fb;
 
 	public final static String SHOW_LOGIN = "showLogin";
 	public final static String SET_LOGIN_RESULT = "setLoginResult";
@@ -1062,4 +1066,30 @@ public class DefaultController extends AbstractControllerImplementation
 	public static final String SET_ACTIVE_TOOLBAR_ITEM = "setactiveToolbarItem";
 	public static final String SET_IS_STATUS_SHOWN = null;
 	public static final String SHOW_SAMPLE_LOGIN = "showSampleLogin";
+	public static final String SHOW_TEST = "showTest";
+	public static final String SET_FACEBOOK_ID = "setFacebookId";
+	public static final String SET_FACEBOOK_ACCESS_TOKEN = "setFacebookAccessToken";
+
+	public void userFacebookLogin() {
+//		String NEXT_URL = "http://www.facebook.com/connect/login_success.html";
+//		String APPLICATION_ID = "445031458872299";
+//		String APPLICATION_SECRET = "500ab3186faf6330e8316287873dd7d2";
+//		String[] PERMISSIONS = Facebook.Permissions.USER_DATA_PERMISSIONS;
+//		Logger.log("facebook permisions: "+PERMISSIONS.length);
+//		ApplicationSettings as = new ApplicationSettings(NEXT_URL, APPLICATION_ID, APPLICATION_SECRET, PERMISSIONS);
+//		Logger.log("facebook as: "+as.getPermissionsString());
+//		fb = Facebook.getInstance(as);
+//		Logger.log("facebook fb: "+fb.getAccessToken());
+		
+
+		new F1rstFacebookClient(UiApplication.getUiApplication(), this, false);
+		
+		propertyChange(new PropertyChangeEvent(null,SHOW_TEST, null, null));
+		
+	}
+
+	public Facebook getFacebook() {
+		
+		return fb;
+	}
 }

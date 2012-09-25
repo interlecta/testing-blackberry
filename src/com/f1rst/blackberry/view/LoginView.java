@@ -1,17 +1,28 @@
 package com.f1rst.blackberry.view;
 
+import com.f1rst.blackberry.F1rstApplication;
 import com.f1rst.blackberry.ui.ApplicationMainScreen;
 import com.f1rst.blackberry.ui.BasicTheme;
+import com.f1rst.blackberry.ui.BitmapButtonField;
 import com.f1rst.blackberry.ui.ColoredLabelField;
+import com.f1rst.blackberry.ui.SpacerField;
+import com.f1rst.blackberry.ui.SpacerManager;
 import com.f1rst.blackberry.util.AbstractViewPanel;
 import com.f1rst.blackberry.util.DefaultController;
 import com.f1rst.blackberry.util.Labels;
 import com.f1rst.blackberry.util.PropertyChangeEvent;
 
+import net.rim.device.api.system.Bitmap;
 import net.rim.device.api.ui.Field;
 import net.rim.device.api.ui.FieldChangeListener;
+import net.rim.device.api.ui.Graphics;
+import net.rim.device.api.ui.Manager;
+import net.rim.device.api.ui.component.BitmapField;
 import net.rim.device.api.ui.component.ButtonField;
 import net.rim.device.api.ui.container.HorizontalFieldManager;
+import net.rim.device.api.ui.container.VerticalFieldManager;
+import net.rim.device.api.ui.decor.Background;
+import net.rim.device.api.ui.decor.BackgroundFactory;
 
 /**
  * sign in screen
@@ -20,11 +31,15 @@ import net.rim.device.api.ui.container.HorizontalFieldManager;
  */
 public class LoginView extends ApplicationMainScreen implements AbstractViewPanel {
 	private ColoredLabelField first;
-	private ButtonField signUp;
-	private ButtonField login;
+	private BitmapButtonField signUp;
+	private BitmapButtonField login;
 	private ButtonField cont;
+	private String res;
+	private Bitmap bg;
+	private BitmapField background;
 	
 	private DefaultController controller;
+	private VerticalFieldManager mainManager;
     /**
      * Creates a new MyScreen object
      */
@@ -35,7 +50,8 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
         createFields();
     }
     
-    public LoginView(DefaultController controller) {    	
+    public LoginView(DefaultController controller) {   
+    	super(NO_VERTICAL_SCROLL);
         this.controller = controller;
         init();
     }
@@ -46,9 +62,16 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
 	}
     
     private void createFields() {
-		first = new ColoredLabelField(BasicTheme.FONT_COLOR_BLACK, "F1rst", Field.FIELD_HCENTER);
-		signUp = new ButtonField("Sign Up", ButtonField.CONSUME_CLICK | Field.FIELD_LEFT);
-		login = new ButtonField("Login", ButtonField.CONSUME_CLICK | Field.FIELD_RIGHT);
+    	if(F1rstApplication.W == 640 && F1rstApplication.H == 480) {
+    		res = "-640x480";
+    	}
+    	res = "-640x480";
+//    	background = new BitmapField(Bitmap.getBitmapResource("bg-main"+res+".jpg"));
+    	mainManager = new VerticalFieldManager(Manager.NO_VERTICAL_SCROLL|Field.USE_ALL_HEIGHT);
+    	mainManager.setBackground(BackgroundFactory.createBitmapBackground(Bitmap.getBitmapResource("bg-main"+res+".jpg")));
+    	
+		signUp = new BitmapButtonField(Bitmap.getBitmapResource("but_signup"+res+".png"), Bitmap.getBitmapResource("but_signup_selected"+res+".png"), "", ButtonField.CONSUME_CLICK);
+		login = new BitmapButtonField(Bitmap.getBitmapResource("but_login"+res+".png"), Bitmap.getBitmapResource("but_login_selected"+res+".png"), "", ButtonField.CONSUME_CLICK);
 		cont = new ButtonField(Labels.LBL_CONTINUE, ButtonField.CONSUME_CLICK | Field.FIELD_BOTTOM);
 		
 		signUp.setChangeListener(new FieldChangeListener() {
@@ -67,18 +90,23 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
 			}
 		});
 		
-		HorizontalFieldManager h = new HorizontalFieldManager();
-		h.add(first);
-		add(h);
+//		mainManager.add(background);
 		
-		HorizontalFieldManager h0 = new HorizontalFieldManager();
+//		HorizontalFieldManager h = new HorizontalFieldManager();
+//		h.add(first);
+//		add(h);
+		
+		HorizontalFieldManager h0 = new HorizontalFieldManager(Field.USE_ALL_WIDTH);
 		h0.add(signUp);
 		h0.add(login);
-		add(h0);
+		mainManager.add(new SpacerField(5,350));
+		mainManager.add(h0);
 		
-		HorizontalFieldManager h1 = new HorizontalFieldManager();
+		HorizontalFieldManager h1 = new HorizontalFieldManager(Field.USE_ALL_WIDTH);
 		h1.add(cont);
-		add(h1);
+		mainManager.add(h1);
+		
+		add(mainManager);
 	}
 
 	protected void cont() {

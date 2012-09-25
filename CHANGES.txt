@@ -1,3 +1,10 @@
+2012-09-25
+---------------------------------------------
+Facebook login test and new screens
+- facebook login test
+- added register screen
+- added images for login screen and register screen
+---------------------------------------------
 2012-09-21
 ---------------------------------------------
 Fixed bugs and gsp test

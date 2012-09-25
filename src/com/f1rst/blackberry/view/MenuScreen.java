@@ -4,6 +4,7 @@ import java.util.Enumeration;
 import javax.microedition.location.LocationException;
 import javax.microedition.location.LocationProvider;
 
+import com.f1rst.blackberry.log.Logger;
 import com.f1rst.blackberry.util.AbstractViewPanel;
 import com.f1rst.blackberry.util.DefaultController;
 import com.f1rst.blackberry.util.Labels;
@@ -129,6 +130,7 @@ public class MenuScreen extends BasicMainScreen implements FieldChangeListener, 
     		map = MapFactory.getInstance().generateRichMapField();
     		data = map.getModel();
     		add(map);
+    		Logger.log("enter gps test");
     		handleGPS();
     		
     		
@@ -173,8 +175,87 @@ public class MenuScreen extends BasicMainScreen implements FieldChangeListener, 
 
 	public void handleGPS()
     {
-        gpsThread = new GPSThread();
-        gpsThread.start();
+//        gpsThread = new GPSThread();
+////        gpsThread.start();
+//        invokeLater(gpsThread);
+		
+		Runnable r2 = new Runnable() {
+
+            public void run() {
+            	try {
+                    BlackBerryCriteria criteria = new BlackBerryCriteria(GPSInfo.GPS_MODE_AUTONOMOUS);
+
+                    try
+                    {
+                        BlackBerryLocationProvider myProvider =
+                          (BlackBerryLocationProvider)
+                            LocationProvider.getInstance(criteria);
+
+                        try
+                        {
+                            BlackBerryLocation myLocation = (BlackBerryLocation)myProvider.getLocation(300);
+
+                            int satCount = myLocation.getSatelliteCount();
+                            
+                            setLat(myLocation.getQualifiedCoordinates().getLatitude());
+                            setLongt(myLocation.getQualifiedCoordinates().getLongitude());
+                            
+                            //data.setVisibleNone();
+                    		MapLocation test = new MapLocation(myLocation.getQualifiedCoordinates().getLatitude(), myLocation.getQualifiedCoordinates().getLongitude(), "test", null);
+                    		int testId = data.add((Mappable) test, "test");
+                    		data.tag(testId, "test");
+                    		data.setVisibleNone();
+                    		data.setVisible( "test");
+//                    		MapAction action = map.getAction();
+//                    		action.setCentreAndZoom(new MapPoint(43.47462, -80.53820), 2);
+                    		map.getMapField().update(true);
+                            
+                            
+                            
+                            
+                            int signalQuality = myLocation.getAverageSatelliteSignalQuality();
+                            int dataSource = myLocation.getDataSource();
+                            int gpsMode = myLocation.getGPSMode();
+
+                            SatelliteInfo si;
+                            StringBuffer sb = new StringBuffer("[Id:SQ:E:A]\n");
+                            String separator = ":";
+
+                            for (Enumeration e = myLocation.getSatelliteInfo();
+                              e!=null && e.hasMoreElements(); )
+                            {
+                                si = (SatelliteInfo)e.nextElement();
+                                sb.append(si.getId() + separator);
+                                sb.append(si.getSignalQuality() + separator);
+                                sb.append(si.getElevation() + separator);
+                                sb.append(si.getAzimuth());
+                                sb.append('\n');
+                                System.out.println(sb);
+                            }
+                        }
+                        catch ( InterruptedException iex )
+                        {
+                            Logger.log(iex.toString());
+                        }
+                        catch ( LocationException lex )
+                        {
+                        	Logger.log(lex.toString());
+                        }
+                    }
+                    catch ( LocationException lex )
+                    {
+                    	Logger.log(lex.toString());
+                    }
+                }
+                catch ( UnsupportedOperationException uoex )
+                {
+                	Logger.log(uoex.toString());
+                }
+
+//                return;
+            }
+		};
+		controller.invokeLater(r2);
     }
 	private static void setLongt(double longitude) {
 		longt = longitude;
