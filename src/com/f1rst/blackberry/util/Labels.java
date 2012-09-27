@@ -19,7 +19,9 @@ public class Labels {
 	public static final String LBL_LOGIN_INF = "USE YOUR F1RST USERNAME (EMAIL) AND PASSWORD";
 	public static final String LBL_LOGIN_INF2 = "OR USE YOUR SOCIAL ACCOUNT";
 	public static final String LBL_REGISTER = "Register";
-	public static final String LBL_SIGNUP_WITH_SOCIAL_ACC = "SIGNUP USING YOUR SOCIAL ACCOUNT"; 
+	public static final String LBL_SIGNUP_WITH_SOCIAL_ACC = "SIGNUP USING YOUR SOCIAL ACCOUNT";
+	public static final String LBL_MENU = "Menu";
+	public static final String LBL_CREATE_ACCOUNT = "Create new F1rst Account"; 
     
     public static String LBL_LOGGING = ""; //miss
     public static String LBL_SIGNING_IN = ""; //miss
@@ -257,93 +259,7 @@ public class Labels {
 	public static String LBL_NAME_EN = "Name";
 	public static String LBL_NAME_ES = "Nombre";
 	public static String LBL_NAME_IT = "Nome";
-	
-	
-	private static void setItalian() {
-		LBL_LANGUAGE = "Lingua";
-		LBL_NAME = LBL_NAME_IT; //<string name="LoginController.UserName">Utente</string> 
-		LBL_SIGN_IN = "Accedi";
-		INF_SIGN_IN = "Inserire il Nome Utente";
-		LBL_SIGNING_IN = "Accesso in corso...";
-		LBL_LOGGING = "Accesso in corso...";
-		INF_INVALID_DATA = "Username o Password errata"; //in english INF_INVALID_DATA = "Invalid data!"
-		LBL_EVENTS = "Evento";
-		LBL_FAVOURITES = "Preferiti";
-		LBL_HISTORY = "Cronologia";
-		INF_NO_HISTORY_PRODUCTS = "Cronologia assente";
-		LBL_NEWS_EVENTS = "Novità/Eventi";
-		LBL_SEARCH = "Ricerca";
-		LBL_ALL_BRANDS = "Tutti i produttori";
-		LBL_BRANDS_BY_LETTER = "Produttori per lettera iniziale";
-		INF_ORDER_SUCCESS = "Ordine completato correttamente";
-		INF_ORDER_PROBLEM = "Impossibile completare l\'ordine";
-		LBL_PROMOTIONS = "Promozione";
-		INF_NO_PROMOTIONS = "Nessuna promozione in corso";
-		LBL_START_DATE = "Data inizio :";
-		LBL_END_DATE = "Data fine :";
-		LBL_SEARCH_RESULTS = "Risultati ricerca";
-		LBL_CART = "Carrello";
-		LBL_PROFILE = "Profilo Utente";
-		LBL_PRICE_TAB = "Prezzo nella scheda:";
-		LBL_LIST_PRICE = "Prezzo Listino";// + EURO_SIGN_BRACKETS;
-		LBL_YOUR_PRICE = "Il tuo prezzo";
-		LBL_PRODUCTS = "Prodotti";
-		LBL_PRODUCT_DETAILS = "Scheda Prodotto";
-		LBL_DESCRIPTION = "Descrizione";
-		LBL_IMAGE_GALLERY = "Galleria Immagini";
-		LBL_AVAILABILITY = "Disponibilità";
-		LBL_DETAILS = "Dettagli prodotto";
-		INF_NO_PRODUCT_DETAILS = "I dettagli del prodotto non sono disponibili";
-		LBL_YES = "Si";
-		LBL_NO = "No";
-		LBL_RELATED_PRODUCTS = "Aggiungi alla vendita anche...";
-		LBL_ADD_TO_CART = "Aggiungi";
-		LBL_CANCEL = "Esci";
-		INF_UNABLE_TO_CONNECT = "Impossibile connettersi al server. Riprova più tardi";
-		LBL_BACK = "Indietro";
-		LBL_LOG_OUT = "Esci";
-		LBL_BUY = "Compra";
-		INF_NO_SEARCH_RESULTS = "Nessun risultato";
-		INF_NO_RESULTS = INF_NO_SEARCH_RESULTS;
-		INF_INVALID_CREDENTIALS = "Username o Password errata";
-		LBL_BRAND = "Produttore";
-		LBL_BRANDS = "Produttori";
-		LBL_CATEGORIES = "Categorie";
-		LBL_YESTERDAY = "Ieri";
-		LBL_TODAY = "Oggi";
-		LBL_1YEARAGO = "Un anno fa";
-		LBL_1MONTHAGO = "1 mese fa";
-		LBL_1WEEKAGO = "1 Settimana fa";
-		LBL_2WEEKSAGO = "2 Settimane fa";
-		LBL_3WEEKSAGO = "3 Settimane fa";
-		
-		LBL_YEARSAGO = "anni fa";
-		LBL_MONTHSAGO = "mesi fa";
-		LBL_DAYSAGO = "Giorni fa";
-		
-		
-		INF_LOADING = "Loading... Please wait";
-		
-		LBL_ADDRESSES = "Indirizzo per la consegna";
-		LBL_CARRIER = "Selezione Corriere";
-		
-		INF_NO_CARIERS = "Nessun corriere selezionabile";
-		INF_NO_ADDRESSES = "Indirizzi per la consegna assenti : inseriscili dal portale";
-		
-		INF_NO_NEWS_EVENTS = "Nessun evento in corso";
-		
-		LBL_GALLERY = "Galleria";
-		LBL_ADDITIONAL_DETAILS = "Dettagli prodotto";
-		LBL_TECHNICAL_DETAILS = "Scheda technica";
-		LBL_MORE_DETAILS = "Di più";
-		LBL_PRODUCTS_IN_CART = "Prodotti nel carrello";
-		LBL_TOTAL = "Totale";
-		
-		LBL_FEES = "Compensi";
-		LBL_TOTAL_PRICE_NO_VAT = "Totale (IVA esclusa)";
-		LBL_TOTAL_PRICE_VAT = "Totale (IVA inclusa)";
-	}
-
+			
 	private static void setSpanish() {
 		LBL_LANGUAGE = "Lengua";
 		LBL_NAME = LBL_NAME_ES; //<string name="LoginController.UserName">Utente</string> 

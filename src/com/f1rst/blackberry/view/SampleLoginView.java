@@ -6,6 +6,7 @@ import net.rim.device.api.ui.FieldChangeListener;
 import net.rim.device.api.ui.Graphics;
 import net.rim.device.api.ui.XYEdges;
 import net.rim.device.api.ui.component.BasicEditField;
+import net.rim.device.api.ui.component.BitmapField;
 import net.rim.device.api.ui.component.ButtonField;
 import net.rim.device.api.ui.component.EmailAddressEditField;
 import net.rim.device.api.ui.component.PasswordEditField;
@@ -14,6 +15,7 @@ import net.rim.device.api.ui.container.VerticalFieldManager;
 import net.rim.device.api.ui.decor.Border;
 import net.rim.device.api.ui.decor.BorderFactory;
 
+import com.f1rst.blackberry.F1rstApplication;
 import com.f1rst.blackberry.ui.ApplicationMainScreen;
 import com.f1rst.blackberry.ui.BasicTheme;
 import com.f1rst.blackberry.ui.BitmapButtonField;
@@ -26,30 +28,15 @@ import com.f1rst.blackberry.util.PropertyChangeEvent;
 public class SampleLoginView extends ApplicationMainScreen implements AbstractViewPanel {
 	private DefaultController controller;
 	
-	private ColoredLabelField loginInf;
+	
 	private ColoredLabelField loginInf2;
-	
-	private ButtonField login;
-	
-	private BitmapButtonField facebook;
-	private BitmapButtonField tweeter;
-	private BitmapButtonField google;
-	private BitmapButtonField ms;
-	private BitmapButtonField yahoo;
-	
+		
 	private EmailAddressEditField userName;
 
     private PasswordEditField password;
-	
-    
-    public SampleLoginView()
-    {        
-        // Set the displayed title of the screen       
-        setTitle("MyTitle");
-        createFields();
-    }
-
-	public SampleLoginView(DefaultController controller) {    	
+	        
+	public SampleLoginView(DefaultController controller) { 
+		super(NO_VERTICAL_SCROLL);
         this.controller = controller;
         init();
     }
@@ -61,8 +48,8 @@ public class SampleLoginView extends ApplicationMainScreen implements AbstractVi
 	}
     
     private void createFields() {
-    	loginInf = new ColoredLabelField(BasicTheme.FONT_COLOR_BLACK, Labels.LBL_LOGIN_INF);
-    	loginInf2 = new ColoredLabelField(BasicTheme.FONT_COLOR_BLACK, Labels.LBL_LOGIN_INF2);
+    	ColoredLabelField loginInf = new ColoredLabelField(BasicTheme.FONT_COLOR_BLACK, Labels.LBL_LOGIN_INF, Field.FIELD_TOP|Field.FIELD_HCENTER);
+    	loginInf2 = new ColoredLabelField(BasicTheme.FONT_COLOR_BLACK, Labels.LBL_LOGIN_INF2, Field.FIELD_TOP|Field.FIELD_HCENTER);
     	
     	userName = new EmailAddressEditField("", Labels.LBL_NAME, 50, BasicEditField.NO_NEWLINE) {
     		public boolean isFocusable() {
@@ -123,17 +110,38 @@ public class SampleLoginView extends ApplicationMainScreen implements AbstractVi
         password.setBorder(BorderFactory.createRoundedBorder(new XYEdges(6, 6, 6, 6),
                 0xc0c0c0,Border.STYLE_SOLID));
         
-        facebook = new BitmapButtonField(Bitmap.getBitmapResource("test.png"), Bitmap.getBitmapResource("test.png"), "F", ButtonField.CONSUME_CLICK);
-//        tweeter = new BitmapButtonField(Bitmap.getBitmapResource(""), Bitmap.getBitmapResource(""), "T", ButtonField.CONSUME_CLICK);
-//        google = new BitmapButtonField(Bitmap.getBitmapResource(""), Bitmap.getBitmapResource(""), "G", ButtonField.CONSUME_CLICK);
-//        ms = new BitmapButtonField(Bitmap.getBitmapResource(""), Bitmap.getBitmapResource(""), "MS", ButtonField.CONSUME_CLICK);
-//        yahoo = new BitmapButtonField(Bitmap.getBitmapResource(""), Bitmap.getBitmapResource(""), "Y", ButtonField.CONSUME_CLICK);
+        BitmapButtonField login = null;
+    	
+    	BitmapButtonField facebook = null;
+    	BitmapButtonField tweeter = null;
+    	BitmapButtonField google = null;
+    	BitmapButtonField ms = null;
+    	BitmapButtonField yahoo = null;
+    	BitmapField header = null;
+    	
+        if(F1rstApplication.W == 640 && F1rstApplication.H == 480) {
+        	header = new BitmapField(Bitmap.getBitmapResource("header_640x480.png"));
+        	facebook = new BitmapButtonField(Bitmap.getBitmapResource("but_facebook_640x480.png"), Bitmap.getBitmapResource("but_facebook_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
+        	tweeter = new BitmapButtonField(Bitmap.getBitmapResource("but_tweeter_640x480.png"), Bitmap.getBitmapResource("but_tweeter_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
+        	google = new BitmapButtonField(Bitmap.getBitmapResource("but_google_640x480.png"), Bitmap.getBitmapResource("but_google_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
+        	ms = new BitmapButtonField(Bitmap.getBitmapResource("but_ms_640x480.png"), Bitmap.getBitmapResource("but_ms_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
+        	yahoo = new BitmapButtonField(Bitmap.getBitmapResource("but_yahoo_640x480.png"), Bitmap.getBitmapResource("but_yahoo_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
         
-        login = new ButtonField("Login", ButtonField.CONSUME_CLICK | Field.FIELD_HCENTER);
+        	login = new BitmapButtonField(Bitmap.getBitmapResource("but_login_640x480.png"), Bitmap.getBitmapResource("but_login_640x480.png"), "", ButtonField.CONSUME_CLICK);
+        } else { ///should be replaced with imgs for smaller res(480x360)
+        	header = new BitmapField(Bitmap.getBitmapResource("header_640x480.png"));
+        	facebook = new BitmapButtonField(Bitmap.getBitmapResource("but_facebook_640x480.png"), Bitmap.getBitmapResource("but_facebook_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
+        	tweeter = new BitmapButtonField(Bitmap.getBitmapResource("but_tweeter_640x480.png"), Bitmap.getBitmapResource("but_tweeter_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
+        	google = new BitmapButtonField(Bitmap.getBitmapResource("but_google_640x480.png"), Bitmap.getBitmapResource("but_google_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
+        	ms = new BitmapButtonField(Bitmap.getBitmapResource("but_ms_640x480.png"), Bitmap.getBitmapResource("but_ms_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
+        	yahoo = new BitmapButtonField(Bitmap.getBitmapResource("but_yahoo_640x480.png"), Bitmap.getBitmapResource("but_yahoo_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
+        
+        	login = new BitmapButtonField(Bitmap.getBitmapResource("but_login_640x480.png"), Bitmap.getBitmapResource("but_login_640x480.png"), "", ButtonField.CONSUME_CLICK);
+        }
         
         facebook.setChangeListener(new FieldChangeListener() {
 			public void fieldChanged(Field arg0, int arg1) {
-				facebookClicked();
+				controller.userFacebookLogin();
 			}
 		});
 //        tweeter.setChangeListener(new FieldChangeListener() {
@@ -159,9 +167,11 @@ public class SampleLoginView extends ApplicationMainScreen implements AbstractVi
         
         login.setChangeListener(new FieldChangeListener() {
 			public void fieldChanged(Field arg0, int arg1) {
-				loginClicked();
+				controller.userNormalLogin("test", "test", true);
 			}
 		});
+        
+        add(header);
         
         VerticalFieldManager v = new VerticalFieldManager(Field.USE_ALL_WIDTH);
         v.add(loginInf);
@@ -173,10 +183,10 @@ public class SampleLoginView extends ApplicationMainScreen implements AbstractVi
         
         HorizontalFieldManager h = new HorizontalFieldManager(Field.USE_ALL_HEIGHT);
         h.add(facebook);
-//        h.add(tweeter);
-//        h.add(google);
-//        h.add(ms);
-//        h.add(yahoo);
+        h.add(tweeter);
+        h.add(google);
+        h.add(ms);
+        h.add(yahoo);
         add(h);
     }
     
@@ -235,6 +245,16 @@ public class SampleLoginView extends ApplicationMainScreen implements AbstractVi
 	            controller.popScreen(this);
 	     } 
 		
+	}
+	
+	protected void onObscured() {
+        //free resource        
+        super.onObscured();
+    }
+	
+	protected void onExposed() {
+		invalidate();
+		super.onExposed();
 	}
 
 }

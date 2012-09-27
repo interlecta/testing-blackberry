@@ -13,6 +13,8 @@ import com.f1rst.blackberry.util.Settings;
 import com.f1rst.blackberry.view.GlobalStatusScreen;
 import com.f1rst.blackberry.view.LoginView;
 import com.f1rst.blackberry.view.MenuScreen;
+import com.f1rst.blackberry.view.MenuView;
+import com.f1rst.blackberry.view.RegisterView;
 import com.f1rst.blackberry.view.SampleLoginView;
 import com.f1rst.blackberry.view.ScreenViewController;
 import com.f1rst.blackberry.view.StatusView2;
@@ -75,6 +77,8 @@ public class F1rstApplication extends UiApplication {
                     ScreenViewController svc = new ScreenViewController(controller);
                     
                     GlobalStatusScreen sssv = new GlobalStatusScreen(controller);
+                    RegisterView rv = new RegisterView(controller);
+                    MenuView mv = new MenuView(controller);
 //                    Test t = new Test(controller);
 //                    MenuScreen ms = new MenuScreen(controller);
                     
@@ -86,6 +90,8 @@ public class F1rstApplication extends UiApplication {
                     controller.addView(svc);
                                        
                     controller.addView(sssv);
+                    controller.addView(rv);
+                    controller.addView(mv);
 //                    controller.addView(ms);
                     //controller.addView(related_pdv);
                     

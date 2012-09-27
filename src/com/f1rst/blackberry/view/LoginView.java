@@ -17,12 +17,15 @@ import net.rim.device.api.ui.Field;
 import net.rim.device.api.ui.FieldChangeListener;
 import net.rim.device.api.ui.Graphics;
 import net.rim.device.api.ui.Manager;
+import net.rim.device.api.ui.XYEdges;
 import net.rim.device.api.ui.component.BitmapField;
 import net.rim.device.api.ui.component.ButtonField;
 import net.rim.device.api.ui.container.HorizontalFieldManager;
 import net.rim.device.api.ui.container.VerticalFieldManager;
 import net.rim.device.api.ui.decor.Background;
 import net.rim.device.api.ui.decor.BackgroundFactory;
+import net.rim.device.api.ui.decor.Border;
+import net.rim.device.api.ui.decor.BorderFactory;
 
 /**
  * sign in screen
@@ -72,21 +75,23 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
     	
 		signUp = new BitmapButtonField(Bitmap.getBitmapResource("but_signup"+res+".png"), Bitmap.getBitmapResource("but_signup_selected"+res+".png"), "", ButtonField.CONSUME_CLICK);
 		login = new BitmapButtonField(Bitmap.getBitmapResource("but_login"+res+".png"), Bitmap.getBitmapResource("but_login_selected"+res+".png"), "", ButtonField.CONSUME_CLICK);
-		cont = new ButtonField(Labels.LBL_CONTINUE, ButtonField.CONSUME_CLICK | Field.FIELD_BOTTOM);
+		cont = new ButtonField(Labels.LBL_CONTINUE, ButtonField.CONSUME_CLICK | Field.USE_ALL_WIDTH);
+		cont.setBackground(BackgroundFactory.createSolidTransparentBackground(0xD9E6EC,0));
+		cont.setBorder(BorderFactory.createRoundedBorder(new XYEdges(0, 0, 0, 0), 0xD9E6EC, 0, Border.STYLE_TRANSPARENT));
 		
 		signUp.setChangeListener(new FieldChangeListener() {
 			public void fieldChanged(Field arg0, int arg1) {
-				signUp();
+				controller.propertyChange(new PropertyChangeEvent(null, controller.SHOW_SAMPLE_LOGIN, null, null));
 			}
 		});
 		login.setChangeListener(new FieldChangeListener() {
 			public void fieldChanged(Field arg0, int arg1) {
-				login();
+				controller.propertyChange(new PropertyChangeEvent(null, controller.SHOW_REGISTER_VIEW, null, null));
 			}
 		});
 		cont.setChangeListener(new FieldChangeListener() {
 			public void fieldChanged(Field arg0, int arg1) {
-				cont();
+				controller.propertyChange(new PropertyChangeEvent(null, controller.SHOW_MENU_VIEW, null, null));
 			}
 		});
 		
@@ -96,31 +101,20 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
 //		h.add(first);
 //		add(h);
 		
-		HorizontalFieldManager h0 = new HorizontalFieldManager(Field.USE_ALL_WIDTH);
+		mainManager.add(new HorizontalFieldManager(Field.USE_ALL_WIDTH));
+		
+		HorizontalFieldManager h0 = new HorizontalFieldManager(Field.FIELD_HCENTER | Field.FIELD_VCENTER);
 		h0.add(signUp);
+		h0.add(new ColoredLabelField(BasicTheme.FONT_COLOR_BLACK, "or"));
 		h0.add(login);
 		mainManager.add(new SpacerField(5,350));
 		mainManager.add(h0);
 		
-		HorizontalFieldManager h1 = new HorizontalFieldManager(Field.USE_ALL_WIDTH);
+		HorizontalFieldManager h1 = new HorizontalFieldManager(Field.FIELD_HCENTER | Field.FIELD_VCENTER);
 		h1.add(cont);
 		mainManager.add(h1);
 		
 		add(mainManager);
-	}
-
-	protected void cont() {
-//		controller.showScreen(DefaultController.SHOW_MENU_VIEW);
-	}
-
-	protected void login() {
-		controller.propertyChange(new PropertyChangeEvent(null, controller.SHOW_SAMPLE_LOGIN, null, null));
-		
-	}
-
-	protected void signUp() {
-//		controller.showScreen(DefaultController.SHOW_SIGNUP_VIEW);
-		
 	}
 	
 	public void modelPropertyChange(PropertyChangeEvent evt) {

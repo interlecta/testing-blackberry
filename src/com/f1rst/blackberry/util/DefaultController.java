@@ -1029,6 +1029,7 @@ public class DefaultController extends AbstractControllerImplementation
 
 	private Bitmap hourglass40;
 	private Facebook fb;
+	public boolean registered = false;
 
 	public final static String SHOW_LOGIN = "showLogin";
 	public final static String SET_LOGIN_RESULT = "setLoginResult";
@@ -1069,6 +1070,8 @@ public class DefaultController extends AbstractControllerImplementation
 	public static final String SHOW_TEST = "showTest";
 	public static final String SET_FACEBOOK_ID = "setFacebookId";
 	public static final String SET_FACEBOOK_ACCESS_TOKEN = "setFacebookAccessToken";
+	public static final String SHOW_REGISTER_VIEW = "showRegisterView";
+	public static final String SHOW_MENU_VIEW = "showMenuView";
 
 	public void userFacebookLogin() {
 //		String NEXT_URL = "http://www.facebook.com/connect/login_success.html";

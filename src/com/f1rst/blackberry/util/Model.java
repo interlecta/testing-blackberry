@@ -3,6 +3,7 @@ package com.f1rst.blackberry.util;
 import com.f1rst.blackberry.log.Logger;
 import com.f1rst.blackberry.model.LoginResult;
 import com.f1rst.blackberry.model.SettingsTable;
+import com.f1rst.blackberry.ui.component.ToolbarManager;
 
 /**
  *
@@ -34,6 +35,8 @@ public class Model extends AbstractModel {
      * It will allow to see extra ui markers for ui elements, that implements it.
      */
     private boolean debugLevelOne;
+
+	private String activeToolbarItem = ToolbarManager.ACTIVE_F1RST;
 
     private Model() {
         staticModel = this;
@@ -145,5 +148,9 @@ public class Model extends AbstractModel {
 	public void setLoginResult(LoginResult lr){
         getModel().getSettings().getLoginResult().setResult(lr.getResult());
         propertyChangeSupport.firePropertyChange(DefaultController.SET_LOGIN_RESULT, null, lr);		
+	}
+
+	public String getActiveToolbarItem() {
+		return getModel().activeToolbarItem;
 	}
 }

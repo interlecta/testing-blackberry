@@ -185,7 +185,6 @@ public class F1rstFacebookClient implements ActionListener {
 
                     Dialog.inform("The application is now connected with facebook.");
 
-                    // passing these arguments to shizzlr app.
                     FBUser u = new FBUser("me", fbc.getAccessToken());
                     String id = u.getId();
                     F1rstApplication.getController().setModelProperty(
