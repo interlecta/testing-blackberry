@@ -119,7 +119,7 @@ public class SampleLoginView extends ApplicationMainScreen implements AbstractVi
     	BitmapButtonField yahoo = null;
     	BitmapField header = null;
     	
-        if(F1rstApplication.W == 640 && F1rstApplication.H == 480) {
+        if(F1rstApplication.W >= 640 && F1rstApplication.H >= 480) {
         	header = new BitmapField(Bitmap.getBitmapResource("header_640x480.png"));
         	facebook = new BitmapButtonField(Bitmap.getBitmapResource("but_facebook_640x480.png"), Bitmap.getBitmapResource("but_facebook_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
         	tweeter = new BitmapButtonField(Bitmap.getBitmapResource("but_tweeter_640x480.png"), Bitmap.getBitmapResource("but_tweeter_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
@@ -130,13 +130,13 @@ public class SampleLoginView extends ApplicationMainScreen implements AbstractVi
         	login = new BitmapButtonField(Bitmap.getBitmapResource("but_login_640x480.png"), Bitmap.getBitmapResource("but_login_640x480.png"), "", ButtonField.CONSUME_CLICK);
         } else { ///should be replaced with imgs for smaller res(480x360)
         	header = new BitmapField(Bitmap.getBitmapResource("header_640x480.png"));
-        	facebook = new BitmapButtonField(Bitmap.getBitmapResource("but_facebook_640x480.png"), Bitmap.getBitmapResource("but_facebook_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
-        	tweeter = new BitmapButtonField(Bitmap.getBitmapResource("but_tweeter_640x480.png"), Bitmap.getBitmapResource("but_tweeter_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
-        	google = new BitmapButtonField(Bitmap.getBitmapResource("but_google_640x480.png"), Bitmap.getBitmapResource("but_google_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
-        	ms = new BitmapButtonField(Bitmap.getBitmapResource("but_ms_640x480.png"), Bitmap.getBitmapResource("but_ms_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
-        	yahoo = new BitmapButtonField(Bitmap.getBitmapResource("but_yahoo_640x480.png"), Bitmap.getBitmapResource("but_yahoo_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
+        	facebook = new BitmapButtonField(Bitmap.getBitmapResource("but_facebook_480x360.png"), Bitmap.getBitmapResource("but_facebook_selected_480x360.png"), "", ButtonField.CONSUME_CLICK);
+        	tweeter = new BitmapButtonField(Bitmap.getBitmapResource("but_tweeter_480x360.png"), Bitmap.getBitmapResource("but_tweeter_selected_480x360.png"), "", ButtonField.CONSUME_CLICK);
+        	google = new BitmapButtonField(Bitmap.getBitmapResource("but_google_480x360.png"), Bitmap.getBitmapResource("but_google_selected_480x360.png"), "", ButtonField.CONSUME_CLICK);
+        	ms = new BitmapButtonField(Bitmap.getBitmapResource("but_ms_480x360.png"), Bitmap.getBitmapResource("but_ms_selected_480x360.png"), "", ButtonField.CONSUME_CLICK);
+        	yahoo = new BitmapButtonField(Bitmap.getBitmapResource("but_yahoo_480x360.png"), Bitmap.getBitmapResource("but_yahoo_selected_480x360.png"), "", ButtonField.CONSUME_CLICK);
         
-        	login = new BitmapButtonField(Bitmap.getBitmapResource("but_login_640x480.png"), Bitmap.getBitmapResource("but_login_640x480.png"), "", ButtonField.CONSUME_CLICK);
+        	login = new BitmapButtonField(Bitmap.getBitmapResource("but_login_480x360.png"), Bitmap.getBitmapResource("but_login_480x360.png"), "", ButtonField.CONSUME_CLICK);
         }
         
         facebook.setChangeListener(new FieldChangeListener() {

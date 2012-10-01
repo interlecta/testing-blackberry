@@ -167,7 +167,7 @@ public class DefaultController extends AbstractControllerImplementation
 	 * @param save
 	 */
 	public void userNormalLogin(final String userName, final String password, final boolean save) {
-		Logger.log("userNormalLogin at:" + "http://f1rst.trapis.net/f1rst-apisim/rest/authentication.signin?username=test&password=test");
+		
 
 		if(isNetworkOperationStarted()) {
 			return;

@@ -52,10 +52,12 @@ public class ToolbarManager implements FieldChangeListener, AbstractViewPanel {
 		VerticalFieldManager toolbarContainer = new VerticalFieldManager(Manager.NO_VERTICAL_SCROLL | Manager.NO_HORIZONTAL_SCROLL);
 		
 		String res = "";
-    	if(F1rstApplication.W == 640 && F1rstApplication.H == 480) {
-    		res = "_640x480";//toolbar_bg_387_50.jpg
-//    		//toolbar_bg_387_50.jpg
-    	}
+//    	if(F1rstApplication.W == 640 && F1rstApplication.H == 480) {
+//    		res = "_640x480";//toolbar_bg_387_50.jpg
+////    		//toolbar_bg_387_50.jpg
+//    	} else {
+    		res = "_640x480";
+//    	}
 		toolbarContainer.setBackground(BackgroundFactory.createBitmapBackground(Bitmap.getBitmapResource("bg_toolbar" + res + ".jpg")));
 //
 //		
@@ -67,7 +69,10 @@ public class ToolbarManager implements FieldChangeListener, AbstractViewPanel {
     		// tab_search_63x46_selected2.png
 			res = "_640x480";
 			spacer = 225;
-    	} 
+    	}else {
+    		res = "_480x360";
+    		spacer = 125;
+    	}
 //			else {
 //    		// Bitmap.getBitmapResource("tab_home_80x58_selected2.png"),
 //			// Bitmap.getBitmapResource("tab_home_80x58.png"), "",
@@ -76,7 +81,7 @@ public class ToolbarManager implements FieldChangeListener, AbstractViewPanel {
 //		
 		Bitmap bitmap = Bitmap.getBitmapResource("but_f1rst" + res + ".jpg");
 //		
-		f1rst = new BitmapButtonField(Bitmap.getBitmapResource("but_f1rst" + res + ".jpg"),Bitmap.getBitmapResource("but_f1rst_selected" + res + ".jpg"), "",ButtonField.CONSUME_CLICK);
+		f1rst = new BitmapButtonField(Bitmap.getBitmapResource("but_f1rst_640x480.jpg"),Bitmap.getBitmapResource("but_f1rst_selected_640x480.jpg"), "",ButtonField.CONSUME_CLICK);
 		activity = new BitmapButtonField(Bitmap.getBitmapResource("but_activity" + res + ".png"),Bitmap.getBitmapResource("but_activity_selected" + res + ".png"), "",ButtonField.CONSUME_CLICK);
 		checkin = new BitmapButtonField(Bitmap.getBitmapResource("but_checkin" + res + ".png"),Bitmap.getBitmapResource("but_checkin_selected" + res + ".png"), "",ButtonField.CONSUME_CLICK);
 		friendRequests = new BitmapButtonField(Bitmap.getBitmapResource("but_friends" + res + ".png"),Bitmap.getBitmapResource("but_friends_selected" + res + ".png"), "",ButtonField.CONSUME_CLICK);
@@ -163,7 +168,7 @@ public class ToolbarManager implements FieldChangeListener, AbstractViewPanel {
 //			
 		} else
 		if (field.equals(profile)) {
-		 
+			controller.propertyChange(new PropertyChangeEvent(null, controller.SHOW_MENU_VIEW, null, null));		 
 		} 
 		else if (/* field.equals(brand) || */field.equals(activity)) {
 //			brandClicked();

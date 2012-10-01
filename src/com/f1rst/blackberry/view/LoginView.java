@@ -65,19 +65,28 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
 	}
     
     private void createFields() {
-    	if(F1rstApplication.W == 640 && F1rstApplication.H == 480) {
-    		res = "-640x480";
-    	}
-    	res = "-640x480";
-//    	background = new BitmapField(Bitmap.getBitmapResource("bg-main"+res+".jpg"));
     	mainManager = new VerticalFieldManager(Manager.NO_VERTICAL_SCROLL|Field.USE_ALL_HEIGHT);
-    	mainManager.setBackground(BackgroundFactory.createBitmapBackground(Bitmap.getBitmapResource("bg-main"+res+".jpg")));
+    	int spacer = 0;
+    	if(F1rstApplication.W >= 640 && F1rstApplication.H >= 480) {
+    		spacer = 350;
+    		mainManager.setBackground(BackgroundFactory.createBitmapBackground(Bitmap.getBitmapResource("bg-main-640x480.jpg")));
+    		signUp = new BitmapButtonField(Bitmap.getBitmapResource("but_signup-640x480.png"), Bitmap.getBitmapResource("but_signup_selected-640x480.png"), "", ButtonField.CONSUME_CLICK);
+    		login = new BitmapButtonField(Bitmap.getBitmapResource("but_login2_640x480.png"), Bitmap.getBitmapResource("but_login2_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
+    		cont = new ButtonField(Labels.LBL_CONTINUE, ButtonField.CONSUME_CLICK | Field.USE_ALL_WIDTH);
+    		cont.setBackground(BackgroundFactory.createSolidTransparentBackground(0xD9E6EC,0));
+    		cont.setBorder(BorderFactory.createRoundedBorder(new XYEdges(0, 0, 0, 0), 0xD9E6EC, 0, Border.STYLE_TRANSPARENT));
+    	}else {
+    		spacer = 250;
+    		mainManager.setBackground(BackgroundFactory.createBitmapBackground(Bitmap.getBitmapResource("bg_main_480x360.jpg")));
+    		signUp = new BitmapButtonField(Bitmap.getBitmapResource("but_signup_480x360.png"), Bitmap.getBitmapResource("but_signup_selected_480x360.png"), "", ButtonField.CONSUME_CLICK);
+    		login = new BitmapButtonField(Bitmap.getBitmapResource("but_login2_480x360.png"), Bitmap.getBitmapResource("but_login2_selected_480x360.png"), "", ButtonField.CONSUME_CLICK);
+    		cont = new ButtonField(Labels.LBL_CONTINUE, ButtonField.CONSUME_CLICK | Field.USE_ALL_WIDTH);
+    		cont.setBackground(BackgroundFactory.createSolidTransparentBackground(0xD9E6EC,0));
+    		cont.setBorder(BorderFactory.createRoundedBorder(new XYEdges(0, 0, 0, 0), 0xD9E6EC, 0, Border.STYLE_TRANSPARENT));
+    	}
+//    	res = "-640x480";
+//    	background = new BitmapField(Bitmap.getBitmapResource("bg-main"+res+".jpg"));
     	
-		signUp = new BitmapButtonField(Bitmap.getBitmapResource("but_signup"+res+".png"), Bitmap.getBitmapResource("but_signup_selected"+res+".png"), "", ButtonField.CONSUME_CLICK);
-		login = new BitmapButtonField(Bitmap.getBitmapResource("but_login"+res+".png"), Bitmap.getBitmapResource("but_login_selected"+res+".png"), "", ButtonField.CONSUME_CLICK);
-		cont = new ButtonField(Labels.LBL_CONTINUE, ButtonField.CONSUME_CLICK | Field.USE_ALL_WIDTH);
-		cont.setBackground(BackgroundFactory.createSolidTransparentBackground(0xD9E6EC,0));
-		cont.setBorder(BorderFactory.createRoundedBorder(new XYEdges(0, 0, 0, 0), 0xD9E6EC, 0, Border.STYLE_TRANSPARENT));
 		
 		signUp.setChangeListener(new FieldChangeListener() {
 			public void fieldChanged(Field arg0, int arg1) {
@@ -107,7 +116,7 @@ public class LoginView extends ApplicationMainScreen implements AbstractViewPane
 		h0.add(signUp);
 		h0.add(new ColoredLabelField(BasicTheme.FONT_COLOR_BLACK, "or"));
 		h0.add(login);
-		mainManager.add(new SpacerField(5,350));
+		mainManager.add(new SpacerField(5,spacer));
 		mainManager.add(h0);
 		
 		HorizontalFieldManager h1 = new HorizontalFieldManager(Field.FIELD_HCENTER | Field.FIELD_VCENTER);

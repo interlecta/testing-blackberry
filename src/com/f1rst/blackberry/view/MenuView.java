@@ -58,15 +58,15 @@ public class MenuView extends BasicMainScreen implements FieldChangeListener, Ab
         	notifications = new BitmapButtonField(Bitmap.getBitmapResource("menu_notifications_selected_640x480.png"), Bitmap.getBitmapResource("menu_notifications_640x480.png"), "", ButtonField.CONSUME_CLICK);
         	settings = new BitmapButtonField(Bitmap.getBitmapResource("menu_settings_selected_640x480.png"), Bitmap.getBitmapResource("menu_settings_640x480.png"), "", ButtonField.CONSUME_CLICK);
         }else { ///should be replaced with imgs for smaller res (480x360)
-        	activity = new BitmapButtonField(Bitmap.getBitmapResource("menu_activity_selected_640x480.png"), Bitmap.getBitmapResource("menu_activity_640x480.png"), "", ButtonField.CONSUME_CLICK);
-        	explore = new BitmapButtonField(Bitmap.getBitmapResource("menu_explore_selected_640x480.png"), Bitmap.getBitmapResource("menu_explore_640x480.png"), "", ButtonField.CONSUME_CLICK);
-        	browse = new BitmapButtonField(Bitmap.getBitmapResource("menu_browse_selected_640x480.png"), Bitmap.getBitmapResource("menu_browse_640x480.png"), "", ButtonField.CONSUME_CLICK);
-        	myProfile = new BitmapButtonField(Bitmap.getBitmapResource("menu_myprofile_selected_640x480.png"), Bitmap.getBitmapResource("menu_myprofile_640x480.png"), "", ButtonField.CONSUME_CLICK);
-        	friends = new BitmapButtonField(Bitmap.getBitmapResource("menu_friends_selected_640x480.png"), Bitmap.getBitmapResource("menu_friends_640x480.png"), "", ButtonField.CONSUME_CLICK);
-        	rewards = new BitmapButtonField(Bitmap.getBitmapResource("menu_rewards_selected_640x480.png"), Bitmap.getBitmapResource("menu_rewards_640x480.png"), "", ButtonField.CONSUME_CLICK);
-        	following = new BitmapButtonField(Bitmap.getBitmapResource("menu_following_selected_640x480.png"), Bitmap.getBitmapResource("menu_following_640x480.png"), "", ButtonField.CONSUME_CLICK);
-        	notifications = new BitmapButtonField(Bitmap.getBitmapResource("menu_notifications_selected_640x480.png"), Bitmap.getBitmapResource("menu_notifications_640x480.png"), "", ButtonField.CONSUME_CLICK);
-        	settings = new BitmapButtonField(Bitmap.getBitmapResource("menu_settings_selected_640x480.png"), Bitmap.getBitmapResource("menu_settings_640x480.png"), "", ButtonField.CONSUME_CLICK);
+        	activity = new BitmapButtonField(Bitmap.getBitmapResource("menu_activity_selected_480x360.png"), Bitmap.getBitmapResource("menu_activity_480x360.png"), "", ButtonField.CONSUME_CLICK);
+        	explore = new BitmapButtonField(Bitmap.getBitmapResource("menu_explore_selected_480x360.png"), Bitmap.getBitmapResource("menu_explore_480x360.png"), "", ButtonField.CONSUME_CLICK);
+        	browse = new BitmapButtonField(Bitmap.getBitmapResource("menu_browse_selected_480x360.png"), Bitmap.getBitmapResource("menu_browse_480x360.png"), "", ButtonField.CONSUME_CLICK);
+        	myProfile = new BitmapButtonField(Bitmap.getBitmapResource("menu_myprofile_selected_480x360.png"), Bitmap.getBitmapResource("menu_myprofile_480x360.png"), "", ButtonField.CONSUME_CLICK);
+        	friends = new BitmapButtonField(Bitmap.getBitmapResource("menu_friends_selected_480x360.png"), Bitmap.getBitmapResource("menu_friends_480x360.png"), "", ButtonField.CONSUME_CLICK);
+        	rewards = new BitmapButtonField(Bitmap.getBitmapResource("menu_rewards_selected_480x360.png"), Bitmap.getBitmapResource("menu_rewards_480x360.png"), "", ButtonField.CONSUME_CLICK);
+        	following = new BitmapButtonField(Bitmap.getBitmapResource("menu_following_selected_480x360.png"), Bitmap.getBitmapResource("menu_following_480x360.png"), "", ButtonField.CONSUME_CLICK);
+        	notifications = new BitmapButtonField(Bitmap.getBitmapResource("menu_notifications_selected_480x360.png"), Bitmap.getBitmapResource("menu_notifications_480x360.png"), "", ButtonField.CONSUME_CLICK);
+        	settings = new BitmapButtonField(Bitmap.getBitmapResource("menu_settings_selected_480x360.png"), Bitmap.getBitmapResource("menu_settings_480x360.png"), "", ButtonField.CONSUME_CLICK);
         }
     	
     	if(!controller.registered) {
@@ -100,7 +100,7 @@ public class MenuView extends BasicMainScreen implements FieldChangeListener, Ab
 		});
     	myProfile.setChangeListener(new FieldChangeListener() {
 			public void fieldChanged(Field arg0, int arg1) {
-				
+				controller.propertyChange(new PropertyChangeEvent(null, controller.SHOW_PROFILE_VIEW, null, null));
 			}
 		});
     	friends.setChangeListener(new FieldChangeListener() {

@@ -79,7 +79,7 @@ public class MenuScreen extends BasicMainScreen implements FieldChangeListener, 
     }
 
     private void init() {
-        createFields();  
+//        createFields();  
 
  
     }

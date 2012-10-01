@@ -21,7 +21,13 @@ public class Labels {
 	public static final String LBL_REGISTER = "Register";
 	public static final String LBL_SIGNUP_WITH_SOCIAL_ACC = "SIGNUP USING YOUR SOCIAL ACCOUNT";
 	public static final String LBL_MENU = "Menu";
-	public static final String LBL_CREATE_ACCOUNT = "Create new F1rst Account"; 
+	public static final String LBL_CREATE_ACCOUNT = "Create new F1rst Account";
+	public static final String LBL_CHECKINS = "Checkins";
+	public static final String LBL_REWARDS = "Rewards";
+	public static final String LBL_REVIEWS = "Reviews";
+	public static final String LBL_PROGRESS = "PROFILE COMPLETION";
+	public static final String LBL_EDIT_PROFILE = "edit profile";
+	public static final String LBL_FRIENDS = "FRIENDS"; 
     
     public static String LBL_LOGGING = ""; //miss
     public static String LBL_SIGNING_IN = ""; //miss
@@ -164,7 +170,7 @@ public class Labels {
 	public static String LBL_ADD_TO_CART = "";
 	
 	public static String LBL_EVENTS = "";
-	public static String LBL_PROFILE = "";
+	public static String LBL_PROFILE = "My Profile";
 	public static String LBL_CUSTOMER_CODE = "";
 	public static String LBL_MAIL = "e-mail";
 	public static String LBL_USER_CODE = "";
@@ -259,83 +265,4 @@ public class Labels {
 	public static String LBL_NAME_EN = "Name";
 	public static String LBL_NAME_ES = "Nombre";
 	public static String LBL_NAME_IT = "Nome";
-			
-	private static void setSpanish() {
-		LBL_LANGUAGE = "Lengua";
-		LBL_NAME = LBL_NAME_ES; //<string name="LoginController.UserName">Utente</string> 
-		LBL_SIGN_IN = "Acceso";
-		//INF_SIGN_IN = "Inserire il Nome Utente";
-		//LBL_SIGNING_IN = "Accesso in corso...";
-		LBL_LOGGING = "Acceso en curso...";
-		INF_INVALID_DATA = "Usuario o Contraseña erroneos"; //in english INF_INVALID_DATA = "Invalid data!"
-		LBL_EVENTS = "Eventos";
-		LBL_FAVOURITES = "Favoritos";
-		LBL_HISTORY = "Cronologia";
-		INF_NO_HISTORY_PRODUCTS = "Ninguna Cronología";
-		LBL_NEWS_EVENTS = "Novedades/Eventos";
-		LBL_SEARCH = "Búsqueda";
-		LBL_ALL_BRANDS = "Todos los fabricantes";
-		LBL_BRANDS_BY_LETTER = "Fabricante por letra inicial";
-		INF_ORDER_SUCCESS = "Pedido Completado correctamente";
-		INF_ORDER_PROBLEM = "Imposible completar el pedido";
-		LBL_PROMOTIONS = "Promociónes";
-		INF_NO_PROMOTIONS = "Ninguna promoción activa";
-		LBL_START_DATE = "Fecha inicio :";
-		LBL_END_DATE = "Fecha fin :";
-		LBL_SEARCH_RESULTS = "Resultado búsqueda";
-		LBL_CART = "Carrito";
-		LBL_PROFILE = "Perfil Usuario";
-		LBL_PRICE_TAB = "Precio en la ficha:";
-		LBL_LIST_PRICE = "PVP";// + EURO_SIGN_BRACKETS;
-		LBL_YOUR_PRICE = "Su precio";
-		LBL_PRODUCTS = "Productos";
-		LBL_PRODUCT_DETAILS = "Ficha de Producto";
-		LBL_DESCRIPTION = "Descripción";
-		LBL_IMAGE_GALLERY = "Galería de Imágenes";
-		LBL_AVAILABILITY = "Disponibilidad";
-		LBL_DETAILS = "Detalle Producto";
-		INF_NO_PRODUCT_DETAILS = "Los detalles del producto no son disponibles";
-		LBL_YES = "Sí";
-		LBL_NO = "No";
-		LBL_RELATED_PRODUCTS = "Productos complementarios";
-		LBL_ADD_TO_CART = "Añadir";
-		LBL_CANCEL = "Salida";
-		INF_UNABLE_TO_CONNECT = "Sin conexión a Internet";
-		LBL_BACK = "Atrás";
-		LBL_LOG_OUT = "Salida";
-		LBL_BUY = "Comprar";
-		INF_NO_SEARCH_RESULTS = "Sin resultados";
-		INF_NO_RESULTS = INF_NO_SEARCH_RESULTS;
-		INF_INVALID_CREDENTIALS = "Usuario o Contraseña erroneo";
-		LBL_BRAND = "Fabricante";
-		LBL_BRANDS = "Fabricantes";
-		LBL_CATEGORIES = "Categorías";
-		LBL_YESTERDAY = "Ayer";
-		LBL_TODAY = "Hoy";
-		LBL_1YEARAGO = "1 año atrás";
-		LBL_1MONTHAGO = "1 mes atrás";
-		LBL_1WEEKAGO = "1 Semana atrás";
-		LBL_2WEEKSAGO = "2 Semanas atrás";
-		LBL_3WEEKSAGO = "3 Semanas atrás";
-		
-		LBL_YEARSAGO = "años atrás";
-		LBL_MONTHSAGO = "meses atrás";
-		LBL_DAYSAGO = "dias atrás";
-		
-		
-		INF_LOADING = "Loading... Please wait";
-		
-		LBL_ADDRESSES = "Dirección para la entrega";
-		LBL_CARRIER = "Seleccione un transportista";
-		INF_NO_CARIERS = "Ningun transportista seleccionable";
-		INF_NO_ADDRESSES = "Ninguna dirección para la entrega: insertalo a traves del portal web";
-		
-		INF_NO_NEWS_EVENTS = "Ningún evento en curso";
-		LBL_PRODUCTS_IN_CART = "Producto en el carrito";
-		LBL_TOTAL = "Total";
-		
-		LBL_FEES = "Total Tasas";
-		LBL_TOTAL_PRICE_NO_VAT = "Total (sin IVA)";
-		LBL_TOTAL_PRICE_VAT = "Total (con IVA)";
-	}
 }

@@ -62,11 +62,11 @@ public class RegisterView extends ApplicationMainScreen implements AbstractViewP
         	newF1rst.setMinimalWidth(640);
     	} else {///should be replaced with imgs for smaller res (480x360)
     		header = new BitmapField(Bitmap.getBitmapResource("header_640x480.png"));
-    		facebook = new BitmapButtonField(Bitmap.getBitmapResource("but_facebook_640x480.png"), Bitmap.getBitmapResource("but_facebook_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
-        	tweeter = new BitmapButtonField(Bitmap.getBitmapResource("but_tweeter_640x480.png"), Bitmap.getBitmapResource("but_tweeter_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
-        	google = new BitmapButtonField(Bitmap.getBitmapResource("but_google_640x480.png"), Bitmap.getBitmapResource("but_google_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
-        	ms = new BitmapButtonField(Bitmap.getBitmapResource("but_ms_640x480.png"), Bitmap.getBitmapResource("but_ms_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
-        	yahoo = new BitmapButtonField(Bitmap.getBitmapResource("but_yahoo_640x480.png"), Bitmap.getBitmapResource("but_yahoo_selected_640x480.png"), "", ButtonField.CONSUME_CLICK);
+    		facebook = new BitmapButtonField(Bitmap.getBitmapResource("but_facebook_480x360.png"), Bitmap.getBitmapResource("but_facebook_selected_480x360.png"), "", ButtonField.CONSUME_CLICK);
+        	tweeter = new BitmapButtonField(Bitmap.getBitmapResource("but_tweeter_480x360.png"), Bitmap.getBitmapResource("but_tweeter_selected_480x360.png"), "", ButtonField.CONSUME_CLICK);
+        	google = new BitmapButtonField(Bitmap.getBitmapResource("but_google_480x360.png"), Bitmap.getBitmapResource("but_google_selected_480x360.png"), "", ButtonField.CONSUME_CLICK);
+        	ms = new BitmapButtonField(Bitmap.getBitmapResource("but_ms_480x360.png"), Bitmap.getBitmapResource("but_ms_selected_480x360.png"), "", ButtonField.CONSUME_CLICK);
+        	yahoo = new BitmapButtonField(Bitmap.getBitmapResource("but_yahoo_480x360.png"), Bitmap.getBitmapResource("but_yahoo_selected_480x360.png"), "", ButtonField.CONSUME_CLICK);
         	
         	newF1rst = new ButtonField(Labels.LBL_CREATE_ACCOUNT, ButtonField.CONSUME_CLICK | Field.USE_ALL_WIDTH);
         	newF1rst.setBackground(BackgroundFactory.createLinearGradientBackground(0xE9610B, 0xE9610B, 0xE22811, 0xE22811));
