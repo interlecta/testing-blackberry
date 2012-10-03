@@ -23,95 +23,94 @@ import com.f1rst.blackberry.view.Test;
 
 public class F1rstApplication extends UiApplication {
 
-    public final static int W = Display.getWidth();
-    public final static int H = Display.getHeight();        
+	public final static int W = Display.getWidth();
+	public final static int H = Display.getHeight();
 
-    public static void main(String[] args) {
+	public static void main(String[] args) {
 
-//        if ( args != null && args.length > 0  && args[0].equals("gui") ) {
-            F1rstApplication theApp = new F1rstApplication();
-            theApp.enterEventDispatcher();
-    }
-    
-    static DefaultController controller;
+		// if ( args != null && args.length > 0 && args[0].equals("gui") ) {
+		// }
+		F1rstApplication theApp = new F1rstApplication();
+		theApp.enterEventDispatcher();
+	}
 
-    public F1rstApplication() {
+	static DefaultController controller;
 
-//        new Thread(new Runnable() {
-//            public void run(){
-                createApplicationComponents();
-//    	pushScreen(new LoginView());
-//            }
-//        }).start();
-    }
+	public F1rstApplication() {
 
-    public static boolean isSimulator() {
-        return DeviceInfo.isSimulator();
-    }
+		// new Thread(new Runnable() {
+		// public void run(){
+		createApplicationComponents();
+		// pushScreen(new LoginView());
+		// }
+		// }).start();
+	}
 
-    public static void setController(DefaultController controller) {
-        F1rstApplication.controller = controller;
-    }
+	public static boolean isSimulator() {
+		return DeviceInfo.isSimulator();
+	}
 
-    public static DefaultController getController() {
-        return controller;
-    }
+	public static void setController(DefaultController controller) {
+		F1rstApplication.controller = controller;
+	}
 
-    private void createApplicationComponents() {
-        final Settings settings = Settings.getSettings();
+	public static DefaultController getController() {
+		return controller;
+	}
 
-            final Model model = Model.getModel();
-            model.setSettings(settings);
+	private void createApplicationComponents() {
+		final Settings settings = Settings.getSettings();
 
+		final Model model = Model.getModel();
+		model.setSettings(settings);
 
-            final DefaultController controller = new DefaultController();
-            F1rstApplication.setController(controller);
+		final DefaultController controller = new DefaultController();
+		F1rstApplication.setController(controller);
 
-            Runnable r2 = new Runnable() {
+		Runnable r2 = new Runnable() {
 
-                public void run() {
-                	
-                	StatusView2 sv2 = new StatusView2(controller);
-                	
-                    LoginView loginView = new LoginView(controller);
-                    SampleLoginView slv = new SampleLoginView(controller);
-                    ScreenViewController svc = new ScreenViewController(controller);
-                    
-                    GlobalStatusScreen sssv = new GlobalStatusScreen(controller);
-                    RegisterView rv = new RegisterView(controller);
-                    MenuView mv = new MenuView(controller);
-                    ProfileView pv = new ProfileView(controller);
-//                    Test t = new Test(controller);
-//                    MenuScreen ms = new MenuScreen(controller);
-                    
-                    
-                    controller.addView(sv2);
-                    
-                    controller.addView(loginView);
-                    controller.addView(slv);
-                    controller.addView(svc);
-                                       
-                    controller.addView(sssv);
-                    controller.addView(rv);
-                    controller.addView(mv);
-                    controller.addView(pv);
-//                    controller.addView(ms);
-                    //controller.addView(related_pdv);
-                    
-//                    controller.addView(MenuScreen.getMenuScreen(controller));
-                    
-//                    controller.addView(t);
-                    
-                    controller.addModel(model);
+			public void run() {
 
-                    model.setSettings(settings);
+				StatusView2 sv2 = new StatusView2(controller);
 
-                    final UiApplication ui = UiApplication.getUiApplication();
-            		
-            			Logger.log("log");
-            			ui.pushScreen(loginView);
-                }
-            };
-            invokeLater(r2);
-    }
+				LoginView loginView = new LoginView(controller);
+				SampleLoginView slv = new SampleLoginView(controller);
+				ScreenViewController svc = new ScreenViewController(controller);
+
+				GlobalStatusScreen sssv = new GlobalStatusScreen(controller);
+				RegisterView rv = new RegisterView(controller);
+				MenuView mv = new MenuView(controller);
+				ProfileView pv = new ProfileView(controller);
+				// Test t = new Test(controller);
+				// MenuScreen ms = new MenuScreen(controller);
+
+				controller.addView(sv2);
+
+				controller.addView(loginView);
+				controller.addView(slv);
+				controller.addView(svc);
+
+				controller.addView(sssv);
+				controller.addView(rv);
+				controller.addView(mv);
+				controller.addView(pv);
+				// controller.addView(ms);
+				// controller.addView(related_pdv);
+
+				// controller.addView(MenuScreen.getMenuScreen(controller));
+
+				// controller.addView(t);
+
+				controller.addModel(model);
+
+				model.setSettings(settings);
+
+				final UiApplication ui = UiApplication.getUiApplication();
+
+				Logger.log("log");
+				ui.pushScreen(loginView);
+			}
+		};
+		invokeLater(r2);
+	}
 }

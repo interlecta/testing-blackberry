@@ -213,8 +213,7 @@ public class DefaultController extends AbstractControllerImplementation
 
 					//validating if the token is valid
 //					try {
-//						String t = new JSONObject(resultS).getJSONObject(
-//								"Token").optString("Token");
+//						String t = new JSONObject(resultS).getJSONObject("Token").optString("Token");
 //						if(TextUtils.isEmpty(t)) {
 //							//username or password problem.
 //							showMessage(Labels.INF_INVALID_CREDENTIALS);
@@ -284,145 +283,7 @@ public class DefaultController extends AbstractControllerImplementation
 		}
 		
 		return message;	
-	}
-	
-	// get product details
-//	public void getDataSheet(final String token, final String productCode, Product p) {
-//		Logger.log("getDataSheet: " + token + " " + productCode);
-//
-//		if(isNetworkOperationStarted()) {
-//			return;
-//		}
-//		
-////		propertyChange(new PropertyChangeEvent(null,
-////				SHOW_PRODUCT_DESTAILS_VIEW, null, p));
-//		
-//		final ProductDetailsView pd = new ProductDetailsView(this);
-//		pd.init();
-//		pd.setInitialProduct(p);
-//		pushScreen(pd);
-//		this.addView(pd);
-//
-//		// showStatus(Labels.LBL_SEARCHING);
-//		setModelProperty(SET_STATUS_MESSAGE, Labels.INF_LOADING);
-//		setModelProperty(DefaultController.SET_IS_STATUS_SHOWN, new Boolean(true));
-//		
-//		isInterrupted = false;
-//
-//		t = new RestThread() {
-//			// @Override
-//
-//			public void run() {
-//				boolean isError = false;
-//				String message = "";
-//
-//				if (Model.DEBUG) {
-//					try {
-//						Thread.sleep(100);
-//					} catch (InterruptedException ex) {
-//					}
-//				}
-//
-//				try {
-//					F1rstApiClient c = new F1rstApiClient();
-//
-//					String t = new JSONObject(Model.getModel().getSettings()
-//							.getLoginResult().getResult()).getJSONObject(
-//							"Token").optString("Token");
-//					if (t.length() == 0) {
-//						inform("invalid token!");
-//					} else {
-//						String result = c.getDataSheet(t, productCode);
-//						Logger.log(result);
-////						propertyChange(new PropertyChangeEvent(
-////								null,
-////								SET_PRODUCT_DETAILS,
-////								null,
-////								c.mapProductFromResponse(new JSONObject(result))));
-//
-//						pd.setProduct(new PropertyChangeEvent(
-//								null,
-//								SET_PRODUCT_DETAILS,
-//								null,
-//								c.mapProductFromResponse(new JSONObject(result))));
-//						
-//					}
-//
-//					// set model property
-//					// setModelProperty(SET_CATEGORIES, p);
-//				} catch (Exception e) {
-//					isError = true;
-//					message = "Unable to connect to service.";
-//					Logger.log("Unable to connect to service. Service returned:\n"
-//							+ e.toString());
-//				} finally {
-//					setModelProperty(SET_STATUS_MESSAGE, "");
-//					setModelProperty(DefaultController.SET_IS_STATUS_SHOWN, new Boolean(false));
-//					if (isError) {
-//						propertyChange(new PropertyChangeEvent(null,
-//								ERROR_GET_PRODUCT_DETAILS, null, message));
-//					}
-//				}
-//			}
-//		};
-//
-//		t.start();
-//	}
-//
-//	// get product details for the cart view
-//	public Product getDataSheet(final String productCode) {
-//        Logger.log("getDataSheet: " + productCode==null?"null":productCode);
-//
-////        if(isNetworkOperationStarted()) {
-////			return;
-////		}
-//        
-//        if(productCode == null) {
-//        	return null;
-//        }
-////        t = new RestThread() {
-////            //@Override
-////
-////            public void run() {
-////                boolean isError = false;
-////                String message = "";               
-////                
-////                if (Model.DEBUG) {
-////                    try {
-////                        Thread.sleep(100);
-////                    } catch (InterruptedException ex) {
-////                    }
-////                }
-////               
-//                try {
-//                	F1rstApiClient c = new F1rstApiClient();
-//                	
-//                	String t = new JSONObject( Model.getModel().getSettings().getLoginResult().getResult()).getJSONObject("Token").optString("Token");
-//                	if(t.length() == 0) {
-//                		//inform("invalid token!");
-//                		return null;
-//                	} else {
-//                		String result = c.getDataSheet(t, productCode);
-//                		 
-//                		return c.mapProductFromResponse(new JSONObject(result));                		
-//                	}
-//                } catch (Exception e) {
-////                    isError = true;
-////                    message = "Unable to connect to service.";
-//                    Logger.log("Unable to connect to service. Service returned:\n"
-//                            + e.toString());
-//                } finally {
-////                    setModelProperty(SET_STATUS_MESSAGE, "");
-////                    setModelProperty(DefaultController.SET_IS_STATUS_SHOWN, new Boolean(false));
-////                    if(isError)
-////                        propertyChange(new PropertyChangeEvent(null, ERROR_GET_PRODUCT_DETAILS, null, message));
-//                }
-//                return null;
-////            }
-////        };
-////
-////        t.start();
-//    }
+	} 
 
 	public void show() {
 
@@ -1051,17 +912,14 @@ public class DefaultController extends AbstractControllerImplementation
 
 	public final static String HIDE_SETTINGS_VIEW = "hideSettingsView";
 
-	public static final String SET_STATUS_MESSAGE = "setStatusMessage";
-	// short search
-	public final static String SHOW_SEARCH_RESULTS = "showSearchResults";// beginProductOpenSearch
-	public final static String SET_SEARCH_TERM = "setSearchTerm";
-	public final static String SET_SEARCH_RESULTS = "setSearchResults";
-	public static final String ERROR_GET_SEARCH_RESULTS = "errorGetSearchResults";
+	public static final String SET_STATUS_MESSAGE = "setStatusMessage";	
 
+	
 	public final static String SHOW_PROFILE_VIEW = "showProfileView";
 	public final static String SET_PROFILE = "setProfile";
 	public final static String ERROR_GET_PROFILE = "errorGetProfile";
 
+	
 	public static final String SHOW_MENU = "showMainMenu";
 	
 	public static final String SET_ACTIVE_TOOLBAR_ITEM = "setactiveToolbarItem";
@@ -1087,7 +945,7 @@ public class DefaultController extends AbstractControllerImplementation
 
 		new F1rstFacebookClient(UiApplication.getUiApplication(), this, false);
 		
-		propertyChange(new PropertyChangeEvent(null,SHOW_TEST, null, null));
+		propertyChange(new PropertyChangeEvent(null, SHOW_TEST, null, null));
 		
 	}
 

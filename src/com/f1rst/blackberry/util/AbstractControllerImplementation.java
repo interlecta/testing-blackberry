@@ -35,17 +35,7 @@ public class AbstractControllerImplementation extends AbstractController {
                     object.setIsStatusShown(((Boolean) newValue).booleanValue());
                 }
             }
-        } 
-//    	if(propertyName.equals(DefaultController.SET_SELECTED_CATEGORY_CODE)) {
-//            for (int i = 0; i < getRegisteredModels().size(); i++) {
-//                if(getRegisteredModels().elementAt(i) instanceof Model){
-//                    Model object = (Model)getRegisteredModels().elementAt(i);
-//                    object.setSelectedCategoryCode((String)newValue);
-//                }
-//            }
-//        }
-    	
-    	
+        }
     	
     }
 }

@@ -16,7 +16,7 @@ public class BasicTheme {
     public final static int COLOR_202020 = 0x202020;//0x0;//can be 202020
     public final static int COLOR_808080 = 0x808080;
     public final static int COLOR_MID_GREY = 0x7F7F7F;
-    public final static int COLOR_LIGHT_GRAY_BLUE = 0xeceff4;// as the main menu icons color
+    public final static int COLOR_LIGHT_GRAY_BLUE = 0xeceff4;
     
     public final static int COLOR_2c524f = 0x2c524f;
     //-------------------------------------------------------
@@ -31,7 +31,7 @@ public class BasicTheme {
 	public final static int secondaryTextColor = FONT_COLOR_MID_GREY;
 	public final static int thirdTextColor = COLOR_3d6188;
 	
-	public final static int forthTextColor = COLOR_fafafa;//product technical details header field text color
+	public final static int forthTextColor = COLOR_fafafa;
 	
 	public final static int listItemFocusColor = 0xc0c0c0;
 	public final static int listItemFocusColor2 = COLOR_MID_GREY;// COLOR_2c524f;

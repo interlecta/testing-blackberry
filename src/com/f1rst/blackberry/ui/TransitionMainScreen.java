@@ -5,7 +5,7 @@ import net.rim.device.api.ui.UiApplication;
 import net.rim.device.api.ui.container.MainScreen;
 
 /**
- * A class for left to right transition of the sceen
+ * A class for left to right transition of the screen
  * @author ivaylo
  */
 public class TransitionMainScreen extends MainScreen {

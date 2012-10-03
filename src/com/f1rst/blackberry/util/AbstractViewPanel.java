@@ -1,7 +1,7 @@
 package com.f1rst.blackberry.util;
 
 /**
- * An interface for notifiing the views
+ * An interface for notifying the views
  * 
  * @author ivaylo
  */

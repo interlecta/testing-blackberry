@@ -18,7 +18,7 @@ public class Model extends AbstractModel {
     public final static boolean DEVELOPMENT = true;
 
     /**
-     * dinamically updated by the build script
+     * dynamically updated by the build script
      */
     public final static String VERSION  = "@VERSION@";   
 

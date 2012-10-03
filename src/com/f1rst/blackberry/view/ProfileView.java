@@ -42,8 +42,9 @@ public class ProfileView extends BasicMainScreen implements FieldChangeListener,
                     init();
                 }
             };
-                controller.pushScreen(this);
-                controller.invokeLater(r);
+                
+            controller.pushScreen(this);
+            controller.invokeLater(r);
         }
 		
 	}
@@ -56,7 +57,7 @@ public class ProfileView extends BasicMainScreen implements FieldChangeListener,
 	private void createFields() {
 		ToolbarManager toolbar = new ToolbarManager(controller);
 		toolbar.setListener(this);
-//		toolbar.setActive(ToolbarManager.ACTIVE_PROFILE);
+//		 toolbar.setActive(ToolbarManager.ACTIVE_PROFILE);
     	add(toolbar.getToolbarManager());
     	add(new SpacerField(20, 8));
     	

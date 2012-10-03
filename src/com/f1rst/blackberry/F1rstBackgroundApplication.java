@@ -9,7 +9,8 @@ import com.f1rst.blackberry.util.Model;
 import com.f1rst.blackberry.util.Settings;
 
 /**
- * Background application that will pool for updates of news/promotions.
+ * Background application that will pool for updates.
+ * 
  * @author ivaylo
  */
 public class F1rstBackgroundApplication extends Application {

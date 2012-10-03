@@ -16,8 +16,8 @@ import net.rim.device.api.system.PersistentStore;
  */
 public class Settings implements net.rim.device.api.util.Persistable {
 
-    private static final long MODELKEY = 0x4562bbb0731b594L;
-    private static final long MODELKEY_IMAGE_CHACHE = 0x54176b312340bafL;
+    private static final long MODELKEY = 0x3215badb761aed8L;
+    private static final long MODELKEY_IMAGE_CHACHE = 0xdeda56e1000365aL;
 
     private static Settings SINGLETONINSTANCE;
 

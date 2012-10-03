@@ -68,7 +68,7 @@ public class RestException extends Exception {
     }
 
     /**
-     * standart http response code generated from server
+     * standard http response code generated from server
      * @return error as String
      */
     public int getResponseCode() {
